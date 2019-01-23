@@ -1,47 +1,19 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
  * @format
  * @flow
  */
 
 import React, {Component} from 'react';
-import {Text, View, Button, Image, StyleSheet} from 'react-native';
+import {Text, View, Button, Image} from 'react-native';
 import {SocialIcon} from 'react-native-elements';
+import { createStackNavigator, createAppContainer } from "react-navigation"
+import MainScreen from './MainScreen'
 
+//will probably need to create a state to update and collect info
 
-const styles = StyleSheet.create({
-  bigblue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
-  image: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-});
-
-const sty = StyleSheet.create({
-  image: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-  });
-
-export default class StartPage extends Component{
-  _login(){
-    alert("login!");
-  }
-
-  _signUp(){
-    alert("signup!");
-  }
-
-
-  render(){
-    return(
+class LoginScreen extends React.Component {
+  render() {
+    return (
       <View style={{flex: 1}}>
         <View style={{flex: 1, justifyContent:'center'}}>
           <Image source={require('./logo.png')} style={{alignSelf: 'center'}}/>
@@ -51,17 +23,27 @@ export default class StartPage extends Component{
           title='Sign In With Facebook'
           button
           type='facebook'
-          onPress={this._login}
+          onPress={() => this.props.navigation.navigate('Main')}
         />
 
         <SocialIcon
           title='Sign In With Google'
           button
           type='google-plus-official'
+          onPress={this._login}
         />
 
       </View>
-    );
 
+    );
   }
 }
+
+const AppNavigator = createStackNavigator(
+  {
+    Login:LoginScreen,
+    Main: MainScreen,
+  }
+);
+
+export default createAppContainer(AppNavigator);
