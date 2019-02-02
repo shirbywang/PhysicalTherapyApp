@@ -8,10 +8,16 @@ import {Text, View, Button, Image} from 'react-native';
 import {SocialIcon} from 'react-native-elements';
 import { createStackNavigator, createAppContainer } from "react-navigation"
 import MainScreen from './MainScreen'
+import SetupScreen from './screens/SetupScreen'
 
 //will probably need to create a state to update and collect info
 
 class LoginScreen extends React.Component {
+
+  _newUser = () =>{
+      this.props.navigation.navigate('Main');
+  }
+
   render() {
     return (
       <View style={{flex: 1}}>
@@ -23,7 +29,7 @@ class LoginScreen extends React.Component {
           title='Sign In With Facebook'
           button
           type='facebook'
-          onPress={() => this.props.navigation.navigate('Main')}
+          onPress={this._newUser}
         />
 
         <SocialIcon
@@ -43,6 +49,7 @@ const AppNavigator = createStackNavigator(
   {
     Login:LoginScreen,
     Main: MainScreen,
+    Setup: SetupScreen,
   }
 );
 

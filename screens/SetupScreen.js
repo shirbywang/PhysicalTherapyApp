@@ -11,23 +11,23 @@ import {Text, View, Button, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
-class ChatScreen extends Component {
+class SetupScreen extends Component {
 
-  static navigationOptions = {
+  /*static navigationOptions = {
     header: (<View></View>),
     tabBarIcon: ({ tintColor }) => (
       <Icon name="md-chatboxes" size={25} style={{color: tintColor}}/>
     )
-  }
+  }*/
 
   render() {
     return (
       <View style={{flex: 1}}>
-        <Text>Chat Screen </Text>
+        <Text>Setup </Text>
       </View>
 
     );
   }
 }
 
-export default ChatScreen;
+export default SetupScreen;
