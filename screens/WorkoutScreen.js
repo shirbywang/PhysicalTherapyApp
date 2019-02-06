@@ -6,110 +6,101 @@
  * @flow
  */
 
- const users = [
+ const workout = [
   {
-     name: 'brynn',
-     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-     title: 'crunch'
+     name: 'Clamshell',
+     num: 1,
+     avatar: 'https://i.ytimg.com/vi/m7RyKQV4XhE/maxresdefault.jpg',
   },
   {
-    name: 'katie',
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg",
-    title: 'pushup'
+    name: 'Lateral Leg Raises',
+    num: 2,
+    avatar: "https://st1.thehealthsite.com/wp-content/uploads/2016/12/standing-leg-stretches-vs-lying-down-THS-655x353.jpg",
+  },
+  {
+    name: 'VMO Exercise',
+    num: 3,
+    avatar: "https://www.ghtraining.co.uk/perch/resources/staright-leg-raise.jpg",
   }
  ]
 
 import React, {Component} from 'react';
-import {Text, View, Button, Image, TouchableOpacity, FlatList} from 'react-native';
+import {Text, View, Button, TouchableOpacity, FlatList, Image, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {Card, ListItem, Avatar, List} from 'react-native-elements';
 
-/*class WorkoutStart extends Component {
-  render() {
-    return (
-      <View style={{flex: 1, backgroundColor: '#111d53'}}>
-        <Text style={{color:'white', fontWeight: 'bold'}}>Workout </Text>
-      </View>
-    );
-  }
-}*/
 
 class WorkoutScreen extends Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      count: 0
+    }
+  }
+
+
 
   _startWorkout(){
     alert("workout beginning");
   }
 
-  /*<FlatList
-    data={[{key: 'a'}, {key: 'b'}]}
-    renderItem={({item}) => <Text>{item.key}</Text>}
-  />
-
-  <Card containerStyle={{padding: 0}} >
-   {
-     users.map((u, i) => {
-       return (
-         <ListItem
-           key={i}
-           roundAvatar
-           title={u.name}
-           avatar={{uri:u.avatar}}
-           chevron
-         />
-       );
-     })
-   }
- </Card>*/
-
   static navigationOptions = {
-    tabBarIcon: ({ tintColor }) => (
-      <Icon name="md-stopwatch" size={25} style={{color: tintColor}}/>
-    ),
-    tabBarOptions: {
-      activeBackgroundColor: '#1c7ef8',
-      activeTintColor: '#1aecb7',
-      inactiveBackgroundColor: '#1c7ef8',
-      inactiveTintColor: 'white'
-    }
+    header: null,
   }
+
+  _newUser = () =>{
+      this.props.navigation.navigate('DoWorkout');
+  }
+
+  /// format number image exercise_name
+  ///               keep the image as an avatar?
+  /*
+  <Text>{item.num}</Text>
+  <Avatar
+    key = {key}
+    xlarge
+    source={{uri: item.avatar}}
+  />
+  */
+
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: '#111d53'}}>
+      <ScrollView style={{flex: 1, backgroundColor: '#111d53'}}>
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Workout</Text>
+
 
         <List containerStyle={{marginBottom: 20}}>
         {
-          users.map((item, key)=>(
+          workout.map((item, key)=>(
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Avatar
-                key = {key}
-                large
-                source={{uri: item.avatar}}
-                onPress={() => console.log("Works!")}
-              />
-              <Text key = {key}>{item.title}</Text>
+              <Image source={{uri: item.avatar}}
+                style={{width: 150, height: 100}} />
+              <Text key = {key} style={{fontSize:20, paddingTop:15, paddingRight: 25}}>{item.name}</Text>
               </View>
+
           ))
       }
         </List>
 
 
-        <TouchableOpacity onPress = {this._startWorkout}>
+        <TouchableOpacity onPress = {this._newUser} style={{paddingLeft: 150}}>
                 <View style = {{backgroundColor: '#ff4858', alignItems: 'center',
                                 justifyContent: 'center', borderRadius: 15,
                                 width: 100, height: 30}}
                        >
-                    <Text style = {{color: 'white', fontSize:15, fontWeight:'bold'}}>Start Workout</Text>
+                    <Text style = {{color: 'white', fontSize:20, fontWeight:'bold'}}>Begin</Text>
                 </View>
             </TouchableOpacity>
 
 
 
-      </View>
+      </ScrollView>
 
     );
   }
 }
+
+
 
 export default WorkoutScreen;

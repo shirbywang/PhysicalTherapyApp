@@ -14,8 +14,12 @@ import SetupScreen from './screens/SetupScreen'
 
 class LoginScreen extends React.Component {
 
-  _newUser = () =>{
+  _returningUser = () =>{
       this.props.navigation.navigate('Main');
+  }
+
+  _newUser = () =>{
+      this.props.navigation.navigate('Setup');
   }
 
   render() {
@@ -23,20 +27,21 @@ class LoginScreen extends React.Component {
       <View style={{flex: 1}}>
         <View style={{flex: 1, justifyContent:'center'}}>
           <Image source={require('./logo.png')} style={{alignSelf: 'center'}}/>
+          <Text style={{paddingLeft:90}}>tools that accelerate injury recovery</Text>
         </View>
 
         <SocialIcon
           title='Sign In With Facebook'
           button
           type='facebook'
-          onPress={this._newUser}
+          onPress={this._returningUser}
         />
 
         <SocialIcon
           title='Sign In With Google'
           button
           type='google-plus-official'
-          onPress={this._login}
+          onPress={this._newUser}
         />
 
       </View>

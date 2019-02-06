@@ -33,7 +33,7 @@ class HomeScreen extends Component{
       <ScrollView style={{ flex: 1, backgroundColor: '#111d53', scrollEnabled:true}}>
 
 
-        <Text style={{fontSize: 20, paddingTop: 25, textAlign:'center', color: '#19d6ad', fontWeight: 'bold',fontSize: 20}}> Welcome, Michael! </Text>
+        <Text style={{fontSize: 20, paddingTop: 25, textAlign:'center', color: '#19d6ad', fontWeight: 'bold',fontSize: 20}}> Welcome, Jane! </Text>
         <Text style={{fontSize: 20, paddingTop: 25, paddingLeft: 10, color: 'white', fontWeight: 'bold'}}> Workouts </Text>
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate('Workout')}>
@@ -41,7 +41,7 @@ class HomeScreen extends Component{
         </TouchableOpacity>
 
         <Text style={{fontSize: 20, paddingTop: 25, paddingLeft: 10, color: 'white', fontWeight: 'bold'}}> Progress </Text>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile')}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Progress')}>
           <Image source={require('../progressplaceholder.png')} style={{alignSelf: 'center', height: 175, width:350}}/>
         </TouchableOpacity>
 
