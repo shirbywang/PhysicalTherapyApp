@@ -9,6 +9,8 @@ import {SocialIcon} from 'react-native-elements';
 import { createStackNavigator, createAppContainer } from "react-navigation"
 import MainScreen from './MainScreen'
 import SetupScreen from './screens/SetupScreen'
+import ChooseInjuryScreen from './screens/ChooseInjury'
+import InjurySurveyScreen from './screens/InjurySurvey'
 
 //will probably need to create a state to update and collect info
 
@@ -55,6 +57,8 @@ const AppNavigator = createStackNavigator(
     Login:LoginScreen,
     Main: MainScreen,
     Setup: SetupScreen,
+    ChooseInjury: ChooseInjuryScreen,
+    InjurySurvey: InjurySurveyScreen
   }
 );
 
