@@ -62,10 +62,13 @@ static navigationOptions = {
 
 
 
-
           </View>
 
         </Card>
+
+        <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Settings</Text>
+        <Text style={{color:'white', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Information on settings here or separate that to the icon</Text>
+
 
       </View>
 

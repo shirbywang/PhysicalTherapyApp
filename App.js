@@ -21,7 +21,7 @@ class LoginScreen extends React.Component {
   }
 
   _newUser = () =>{
-      this.props.navigation.navigate('Setup');
+      this.props.navigation.navigate('ChooseInjury');
   }
 
   render() {

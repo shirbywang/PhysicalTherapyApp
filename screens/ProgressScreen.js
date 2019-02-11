@@ -36,6 +36,12 @@ class ProgressScreen extends Component {
           this is where competitors averages may come in and possibly seeing old data/n
           there could be a toggle button to switch between the two
         </Text>
+
+        <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10, paddingBottom: 25}}>LeaderBoard </Text>
+
+        <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10, paddingBottom: 25}}>Past Survey Results </Text>
+
+
       </View>
 
 
