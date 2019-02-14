@@ -9,8 +9,10 @@
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "accordion-collapse-react-native": "^0.1.9",
+    "chart.js": "^2.7.3",
     "native-base": "^2.11.0",
     "react": "16.6.3",
+    "react-chartkick": "^0.3.0",
     "react-native": "0.57.8",
     "react-native-elements": "^0.19.1",
     "react-native-gesture-handler": "^1.0.12",
