@@ -26,6 +26,11 @@ client.connect(function(err) {
   });
 });
 
+app.get('/', function(req,res){
+  console.log("Connected to server!")
+  res.send("Connected to VidPT API!"); 
+});
+
 app.post('/login', (req, res) => {
   //Check with login system or social media login
   res.send("login endpoint hit"); 
