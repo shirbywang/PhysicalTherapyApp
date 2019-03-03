@@ -28,10 +28,24 @@ class InjurySurveyScreen extends React.Component{
    }
 
    submitAnswers = (answer1, answer2, answer3, answer4, answer5, goal) => {
-      alert('answer1 ' + this.state.q1 + ' answer2 ' + this.state.q2
+
+    if (this.state.q1 === '' ||
+        this.state.q2 === 1 ||
+        this.state.q3 === '' ||
+        this.state.q4 === '' ||
+        this.state.q5 === '' ||
+        this.state.goal === '' ){
+      alert("Please fill out all fields!")
+      
+    }
+    else{
+            alert('answer1 ' + this.state.q1 + ' answer2 ' + this.state.q2
         + ' answer3 ' + this.state.q3 + ' answer4 ' + this.state.q4 + ' answer5 ' 
         + this.state.q5 + ' injury ' + this.state.injury)
       this.props.navigation.navigate('Main');
+    }
+
+
 
    }
 
