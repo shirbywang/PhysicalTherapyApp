@@ -1,17 +1,37 @@
 import React, {Component} from 'react';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from 'react-native';
 import { createStackNavigator, createAppNavigator } from "react-navigation"
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import { List, ListItem, Separator} from 'native-base';
+import { CheckBox } from 'react-native-elements';
 import InjurySurveyScreen from './InjurySurvey';
-
 
 class ChooseInjuryScreen extends React.Component{
 
-render(){
-    return(
-      <View>
-      <Text>What is your injury?</Text>
+  constructor (props) {
+     super(props)
+     this.state = {
+       chosenInjury: ''
+     }
+  }
+
+  handleSubmit = () => {
+    if (this.state.chosenInjury === ''){
+      alert("Please choose your injury!")
+      
+    }
+    else{
+      this.props.navigation.navigate('InjurySurvey', {chosenInjury : this.state.chosenInjury});
+    }
+
+   }
+
+render() {
+  return (
+
+    <View>
+
+        <Text>What is your injury?</Text>
       <Collapse>
         <CollapseHeader>
           <Separator bordered>
@@ -20,10 +40,23 @@ render(){
         </CollapseHeader>
         <CollapseBody>
           <ListItem>
-            <Text>Plantar Fasciitis</Text>
+
+        <CheckBox
+          title = "IT Band Syndrome"
+          checked = {this.state.chosenInjury === "IT Band Syndrome"}
+          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
+        />
+
           </ListItem>
+
           <ListItem>
-            <Text>IT Band Syndrome</Text>
+
+        <CheckBox
+          title = "IT Band Syndrome"
+          checked = {this.state.chosenInjury === "IT Band Syndrome"}
+          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
+        />
+
           </ListItem>
         </CollapseBody>
       </Collapse>
@@ -35,25 +68,34 @@ render(){
         </CollapseHeader>
         <CollapseBody>
           <ListItem>
-            <Text>Back Problem 1</Text>
+
+        <CheckBox
+          title = "IT Band Syndrome"
+          checked = {this.state.chosenInjury === "IT Band Syndrome"}
+          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
+        />
+
           </ListItem>
           <ListItem>
-            <Text>Being Old</Text>
+
+        <CheckBox
+          title = "IT Band Syndrome"
+          checked = {this.state.chosenInjury === "IT Band Syndrome"}
+          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
+        />
+
           </ListItem>
         </CollapseBody>
       </Collapse>
 
 
-
-    <TouchableOpacity 
-      onPress={() => this.props.navigation.navigate('InjurySurvey')} title = "Next">
-    <Text> Next </Text>
-    </TouchableOpacity>
-
-    </View>
-
-    )
-
+    <Button
+      onPress={this.handleSubmit}
+      title="Next"
+      color='rgb(34, 172, 227)'
+    />
+      </View>
+  );
 }
 
 } export default ChooseInjuryScreen;
