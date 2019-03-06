@@ -16,7 +16,7 @@
 
 import React, {Component} from 'react';
 import {Text, View, Button, Image, StyleSheet, ScrollView} from 'react-native';
-import {SocialIcon, Card, Avatar} from 'react-native-elements';
+import {SocialIcon, Card, Avatar, ListItem} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
@@ -24,7 +24,7 @@ class ProfileScreen extends Component{
 
 static navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
-    <Icon name="md-contact" size={25} style={{color: tintColor}}/>
+    <Icon name="md-settings" size={25} style={{color: tintColor}}/>
   ),
   tabBarOptions: {
     activeBackgroundColor: '#1c7ef8',
@@ -33,10 +33,11 @@ static navigationOptions = {
     inactiveTintColor: 'white'
   }
 }
+
   render() {
     return (
       <View style={{flex: 1, backgroundColor: '#111d53'}}>
-        <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Profile</Text>
+        <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Settings</Text>
         <Card>
           <View style={{flexDirection: 'row'}}>
           <Avatar
@@ -50,16 +51,6 @@ static navigationOptions = {
 
           <View style={{flexDirection: 'row'}}>
 
-          <Image source={require('../arrow.png')} style={{ width: 90,height:90, marginTop: 10, marginLeft:60}}/>
-          <View style={{position: 'absolute', top: 20, left: 0, right: 135, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{fontSize:20, fontWeight:'bold', color:'black', textAlign:'center'}}>3245 {"\n"}pts</Text>
-          </View>
-
-          <Image source={require('../fire.png')} style={{marginLeft:60, width: 100,height:100}}/>
-          <View style={{position: 'absolute', top: 20, left: 170, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{fontSize:20, fontWeight:'bold', color:'black', textAlign:'center'}}>35 {"\n"}days</Text>
-          </View>
-
 
 
           </View>
@@ -67,8 +58,7 @@ static navigationOptions = {
         </Card>
 
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Settings</Text>
-        <Text style={{color:'white', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Information on settings here or separate that to the icon</Text>
-
+        <Text style={{color:'white', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Notifications, Change Profile pic, change goal, Privacy, sign out, Terms of use, Disclaimer</Text>
 
       </View>
 

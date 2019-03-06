@@ -14,6 +14,7 @@ import WorkoutScreen from './screens/WorkoutScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ProgressScreen from './screens/ProgressScreen';
 import DoWorkoutScreen from './screens/DoWorkoutScreen';
+import CompletedWorkout from './screens/CompletedWorkout'
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
@@ -32,6 +33,7 @@ class LogoTitle extends Component{
 const WorkoutPages = createStackNavigator({
     ViewWorkout: WorkoutScreen,
     DoWorkout: DoWorkoutScreen,
+    Completed: CompletedWorkout,
   });
 const WorkContainer = createAppContainer(WorkoutPages)
 
@@ -47,6 +49,8 @@ class WorkoutPage extends Component{
       inactiveTintColor: 'white'
     },
   }
+
+
   render() {
     return (
       <WorkContainer/>
@@ -77,7 +81,7 @@ const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
   Workout: WorkoutPage, //figure out how to make it the main page even tho icon in middle
   Progress: ProgressScreen,
-  Profile: ProfileScreen,
+  Setting: ProfileScreen,
 });
 
 
