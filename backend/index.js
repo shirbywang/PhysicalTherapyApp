@@ -9,6 +9,13 @@ const assert = require('assert');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(morgan('combined')); 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header({'Content-Type': 'application/json',
+  'Accept': 'application/json'});
+  next();
+});
 
 //DB connection
 const dbUrl = 'mongodb://localhost:27017';
@@ -26,14 +33,92 @@ client.connect(function(err) {
   });
 });
 
+app.get('/*',function(req,res,next){
+  res.header('x-Trigger' , 'CORS' );
+  next(); // http://expressjs.com/guide.html#passing-route control
+});
+
 app.get('/', function(req,res){
   console.log("Connected to server!")
-  res.send("Connected to VidPT API!"); 
+  res.send({response: "Connected to VidPT API!"}); 
 });
 
 app.post('/login', (req, res) => {
   //Check with login system or social media login
-  res.send("login endpoint hit"); 
+  res.send({response: "login endpoint hit"}); 
+});
+
+app.get('/viewCollections', (req,res)=>{
+  db.listCollections().toArray(function(err,docs){
+    if(err){
+      console.log("db error: " + err);
+      throw err;
+    }
+    if(docs){
+      res.send({response: docs});
+    }
+  }); 
+});
+
+app.get("/exercises", (req,res)=>{
+  const collection = db.collection('exercises'); 
+  collection.find().toArray(function(err, docs){
+      if(err) throw err; 
+      if(docs){
+        res.send(docs);
+      }
+  });
+});
+
+//CREATE EXERCISE FROM BODY DATA - STRICTLY FOLLOWING SCHEMA
+app.post("/exercises", (req,res)=>{
+  console.log("body: " + req.body.name);//find body)); 
+  const collection = db.collection('exercises'); 
+  var message = ""; 
+  var found = false; 
+  //Check for duplicate exercise
+  collection.find({
+    "name": req.body.name
+  }).toArray(function(err,docs){
+      if(err) {
+        console.log("Error in adding exercise: " + err); 
+        message = "error"; 
+      }
+      if(docs) {
+        message = "ERROR: EXERCISE FOUND - DUPLICATE"; 
+        found = true; 
+      }
+      res.write(message);
+      res.end(); 
+  });
+  if(!found){
+    //create new exercise from body data
+    try{
+      if(typeof(body) != undefined){
+      collection.insertOne(req.body, function(err, res){
+        if(err) message = "ERROR: COULD NOT ADD EXERCISES -";
+        console.log("inserted doc: " + res.ok); 
+        ()=>{ 
+          res.write("SUCCESS - Inserted document - " + res.ok); 
+          res.end(); 
+        }; 
+
+      }); 
+    }
+    else{
+      message = "error"; 
+      res.write(message);
+      res.end(); 
+    }
+    }
+    catch(e){
+      console.log(e); 
+      message = "ERROR: Document not inserted"; 
+      res.write(message);
+      res.end(); 
+    }
+  }
+  
 });
 
 //Params: injury=string&phase=int 
@@ -68,7 +153,7 @@ app.get('/workout', (req, res) => {
         }
     }); 
 
-    //Gets exercises based on the given phase (1 > phaseNum > 3)
+    //Gets exercises based on the given phase (1 > phaseNum > 3) -> needs to change to week
     var phase = req.query.phase; 
     function getPhases(injury_id){
       const phases = db.collection('phases');
@@ -89,7 +174,6 @@ app.get('/workout', (req, res) => {
               }
             });
     }
-
     //Aggregates exercise data
     async function forEachinExercise(array, phaseNum, callback){
       var exerciseData = []; 
@@ -101,7 +185,6 @@ app.get('/workout', (req, res) => {
       console.log("Done."); 
       return exerciseData; 
     }
-
     //Finds data for each exercise
     async function getExercise(collection, itemID){
         var _id = new ObjectID(itemID); 
