@@ -11,6 +11,7 @@ import MainScreen from './MainScreen'
 import SetupScreen from './screens/SetupScreen'
 import ChooseInjuryScreen from './screens/ChooseInjury'
 import InjurySurveyScreen from './screens/InjurySurvey'
+import FinishSurveyScreen from './screens/FinishSurveyScreen'
 
 //will probably need to create a state to update and collect info
 
@@ -58,7 +59,8 @@ const AppNavigator = createStackNavigator(
     Main: MainScreen,
     Setup: SetupScreen,
     ChooseInjury: ChooseInjuryScreen,
-    InjurySurvey: InjurySurveyScreen
+    InjurySurvey: InjurySurveyScreen,
+    FinishSurvey: FinishSurveyScreen,
   }
 );
 

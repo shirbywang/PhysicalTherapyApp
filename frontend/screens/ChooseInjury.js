@@ -11,7 +11,8 @@ class ChooseInjuryScreen extends React.Component{
   constructor (props) {
      super(props)
      this.state = {
-       chosenInjury: ''
+       chosenInjury: '',
+       collapsed: false
      }
   }
 
@@ -31,8 +32,9 @@ render() {
 
     <View>
 
-        <Text>What is your injury?</Text>
-      <Collapse>
+        <Text style={{fontSize : 20, fontWeight: "bold", color: "rgb(34, 172, 227)"}}>What is your injury? {"\n"} </Text>
+      <Collapse
+        isCollapsed={this.state.collapsed}>
         <CollapseHeader>
           <Separator bordered>
            <Text>Leg</Text>
@@ -44,23 +46,20 @@ render() {
         <CheckBox
           title = "IT Band Syndrome"
           checked = {this.state.chosenInjury === "IT Band Syndrome"}
-          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
+          onPress={() => this.setState({chosenInjury: "IT Band Syndrome",
+                                        collapsed: true})}
         />
 
           </ListItem>
 
           <ListItem>
 
-        <CheckBox
-          title = "IT Band Syndrome"
-          checked = {this.state.chosenInjury === "IT Band Syndrome"}
-          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
-        />
+            <Text> Injury </Text>
 
           </ListItem>
         </CollapseBody>
       </Collapse>
-      <Collapse>
+      <Collapse isCollapsed={this.state.collapsed}>
         <CollapseHeader>
           <Separator bordered>
            <Text>Back</Text>
@@ -69,26 +68,19 @@ render() {
         <CollapseBody>
           <ListItem>
 
-        <CheckBox
-          title = "IT Band Syndrome"
-          checked = {this.state.chosenInjury === "IT Band Syndrome"}
-          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
-        />
+            <Text> Injury </Text>
 
           </ListItem>
           <ListItem>
 
-        <CheckBox
-          title = "IT Band Syndrome"
-          checked = {this.state.chosenInjury === "IT Band Syndrome"}
-          onPress={() => this.setState({chosenInjury: "IT Band Syndrome"})}
-        />
+            <Text> Injury </Text>
 
           </ListItem>
         </CollapseBody>
       </Collapse>
 
-
+      <Text> {"\n"} </Text>
+      
     <Button
       onPress={this.handleSubmit}
       title="Next"
