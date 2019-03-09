@@ -47,6 +47,8 @@ class WorkoutPage extends Component{
       inactiveTintColor: 'white'
     },
   }
+
+
   render() {
     return (
       <WorkContainer/>
@@ -77,7 +79,7 @@ const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
   Workout: WorkoutPage, //figure out how to make it the main page even tho icon in middle
   Progress: ProgressScreen,
-  Profile: ProfileScreen,
+  Setting: ProfileScreen,
 });
 
 

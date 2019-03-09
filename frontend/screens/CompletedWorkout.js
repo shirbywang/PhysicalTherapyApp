@@ -16,7 +16,7 @@ var screenheight = Dimensions.get('window').height;
 var screenwidth = Dimensions.get('window').width;
 
 
-class HomeScreen extends Component{
+class CompletedWorkout extends Component{
 
 
   //var screenheight = Dimensions.get('window').height;
@@ -87,7 +87,7 @@ class HomeScreen extends Component{
 }
 
 
-export default HomeScreen;
+export default CompletedWorkout;
 
 const styles = StyleSheet.create({
   container:{

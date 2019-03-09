@@ -27,26 +27,16 @@
 import React, {Component} from 'react';
 import {Text, View, Button, TouchableOpacity, FlatList, Image, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
-import {Card, ListItem, Avatar, List} from 'react-native-elements';
+import {Card, ListItem, Avatar, List, Tile} from 'react-native-elements';
 
 
 class WorkoutScreen extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      count: 0
-    }
-  }
 
-
-
-  _startWorkout(){
-    alert("workout beginning");
-  }
 
   static navigationOptions = {
     header: null,
   }
+
 
   _newUser = () =>{
       this.props.navigation.navigate('DoWorkout');
@@ -54,26 +44,29 @@ class WorkoutScreen extends Component {
 
   /// format number image exercise_name
   ///               keep the image as an avatar?
-  /*
-  <Text>{item.num}</Text>
-  <Avatar
-    key = {key}
-    xlarge
-    source={{uri: item.avatar}}
-  />
-  */
+
 
 
   render() {
     return (
       <ScrollView style={{flex: 1, backgroundColor: '#111d53'}}>
+      <Tile
+        imageSrc={require('../wo_tile.jpg')}
+        title="IT Band Syndrome Workout"
+        featured
+        caption="Begin"
+        captionStyle={{fontSize:20, fontWeight:'bold', backgroundColor:'#ff4858', borderRadius: 15,width: 100, height: 30}}
+        onPress = {this._newUser}
+
+        />
+
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Workout</Text>
 
 
         <List containerStyle={{marginBottom: 20}}>
         {
           workout.map((item, key)=>(
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
               <Image source={{uri: item.avatar}}
                 style={{width: 150, height: 100}} />
               <Text key = {key} style={{fontSize:20, paddingTop:15, paddingRight: 25}}>{item.name}</Text>
@@ -83,15 +76,6 @@ class WorkoutScreen extends Component {
       }
         </List>
 
-
-        <TouchableOpacity onPress = {this._newUser} style={{paddingLeft: 150}}>
-                <View style = {{backgroundColor: '#ff4858', alignItems: 'center',
-                                justifyContent: 'center', borderRadius: 15,
-                                width: 100, height: 30}}
-                       >
-                    <Text style = {{color: 'white', fontSize:20, fontWeight:'bold'}}>Begin</Text>
-                </View>
-            </TouchableOpacity>
 
 
 
