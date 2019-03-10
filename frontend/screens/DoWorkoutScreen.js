@@ -76,9 +76,12 @@ _id: int,
 */
   loadNextMove = ()=>{
     //var word = 'hello';
-    if (this.state._id < list){
-       //change id
+    if (this.state._id+1 > list){
+      this.props.navigation.navigate('Completed');
+    }
 
+    else if (this.state._id < list){
+       //change id
       //changing exercise
       this.setState({name: users[this.state._id].name})
       this.setState({sets: users[this.state._id].sets})
@@ -97,6 +100,7 @@ _id: int,
     }
 
   }
+
 
   /*
             {
@@ -126,6 +130,8 @@ _id: int,
           <View style={{flexDirection: 'row', flexWrap: 'wrap',flex:1,}}>
             <Text style={styles.exercise}>{this.state.sets} x </Text>
             <Text style={styles.exercise}>{this.state.reps} reps </Text>
+
+            <Text style={styles.exercise}>{this.state._id} reps </Text>
 
 
 

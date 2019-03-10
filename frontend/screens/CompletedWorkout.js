@@ -12,6 +12,7 @@ import {Card} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
+
 var screenheight = Dimensions.get('window').height;
 var screenwidth = Dimensions.get('window').width;
 
@@ -22,7 +23,11 @@ class CompletedWorkout extends Component{
   //var screenheight = Dimensions.get('window').height;
     //console.log(width, height)
 
-  static navigationOptions = {
+    static navigationOptions = {
+      header: null,
+    }
+
+  /*static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
       <Icon name="md-home" size={25} style={{color:tintColor}}/>
     ),
@@ -32,6 +37,10 @@ class CompletedWorkout extends Component{
       inactiveBackgroundColor: '#1c7ef8',
       inactiveTintColor: 'white'
     }
+  }*/
+
+  home = () =>{
+    this.props.navigation.navigate('ViewWorkout');
   }
 //should display your points and streaks and the start button
 
@@ -41,10 +50,9 @@ class CompletedWorkout extends Component{
       <ScrollView style={styles.container}>
 
         <View style={styles.top}>
-        <Text style={styles.welcome}> Welcome, Jane! </Text>
+        <Text style={styles.welcome}> Workout Completed </Text>
 
-          <Image resizeMode='cover' source={{uri:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'}}
-          style={styles.image}/>
+        <Text> +20 points </Text>
         </View>
 
         <View style={styles.stats}>
@@ -52,21 +60,14 @@ class CompletedWorkout extends Component{
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Streak</Text>
             <Icon name="md-flame" size={45} color="#ff4858"/>
-            <Text style={{fontSize: 15}}>5 days </Text>
+            <Text style={{fontSize: 15}}>6 days </Text>
             </View>
           </Card>
           <Card>
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Points</Text>
             <Icon name="md-ribbon" size={45} color="gold"/>
-            <Text style={{fontSize: 15}}>235</Text>
-            </View>
-          </Card>
-          <Card>
-            <View style={styles.statscont}>
-            <Text style={{fontSize: 20, fontWeight:'bold'}}>Phase</Text>
-            <Icon name="md-fitness" size={45} color="grey"/>
-            <Text style={{fontSize: 15}}>Stage 1</Text>
+            <Text style={{fontSize: 15}}>255</Text>
             </View>
           </Card>
         </View>
@@ -74,7 +75,8 @@ class CompletedWorkout extends Component{
         <View style={styles.stats} style={{paddingBottom:15}}>
           <Card>
             <View style={styles.statscont}>
-            <Text style={{fontWeight:'bold', fontSize: 20}}> Goal </Text><Text style={{fontSize:15}}>I want to run the Disney half-marathon. </Text>
+            <Button onPress={this.home} title='Back to Workout screen' color="#841584"  accessibilityLabel="Learn more about this purple button"/>
+
             </View>
           </Card>
         </View>

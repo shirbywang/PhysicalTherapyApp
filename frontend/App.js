@@ -4,7 +4,7 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View, Button, Image} from 'react-native';
+import {Text, View, Button, Image, TextInput, StyleSheet} from 'react-native';
 import {SocialIcon} from 'react-native-elements';
 import { createStackNavigator, createAppContainer } from "react-navigation"
 import MainScreen from './MainScreen'
@@ -31,6 +31,17 @@ class LoginScreen extends React.Component {
         <View style={{flex: 1, justifyContent:'center'}}>
           <Image source={require('./logo.png')} style={{alignSelf: 'center'}}/>
           <Text style={{paddingLeft:90}}>tools that accelerate injury recovery</Text>
+        </View>
+
+        <View style={styles.container}>
+          <TextInput
+            placeholder="username"
+            style={styles.input}
+          />
+          <TextInput
+            placeholder="password"
+            style={styles.input}
+          />
         </View>
 
         <SocialIcon
@@ -65,3 +76,16 @@ const AppNavigator = createStackNavigator(
 );
 
 export default createAppContainer(AppNavigator);
+
+const styles = StyleSheet.create({
+  container: {
+    padding:20
+  },
+  input: {
+    height:40,
+    backgroundColor: 'blue',
+    marginBottom: 20,
+    color:'#FFF',
+    paddingHorizontal: 10
+  }
+  })
