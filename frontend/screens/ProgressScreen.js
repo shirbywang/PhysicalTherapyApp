@@ -7,56 +7,68 @@
  */
 
 import React, {Component} from 'react';
-import {Text, ScrollView, Button, Image, View, StyleSheet} from 'react-native';
+import {Text, ScrollView, Button, Image, View, StyleSheet, Dimensions} from 'react-native';
+import PureChart from 'react-native-pure-chart';
+
 
 import {Card} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
-//import ReactDOM from 'react-dom';
-/*import VegaLite from 'react-vega-lite';
+var screenheight = Dimensions.get('window').height;
 
+let progressData = [
+	{
+	seriesName: 'Performance',
+	data: [
+		{x: '2019-03-03', y: 1},
+		{x: '2019-10-03', y: 2},
+		{x: '2019-17-03', y: 3},
+		{x: '2019-24-03', y: 4}
+		],
+		color: '#7D3C98'
+	},
+	{
+	seriesName: 'Range of Motion',
+	data: [
+		{x: '2019-03-03', y: 2},
+		{x: '2019-10-03', y: 3},
+		{x: '2019-17-03', y: 4},
+		{x: '2019-24-03', y: 5}
+		],
+		color: '#CA6F1E'
+	},
+	{
+	seriesName: 'Pain',
+	data: [
+		{x: '2019-03-03', y: 3},
+		{x: '2019-10-03', y: 4},
+		{x: '2019-17-03', y: 5},
+		{x: '2019-24-03', y: 6}
+		],
+		color: '#CB4335'
+	},
+	{
+	seriesName: 'Improvement',
+	data: [
+		{x: '2019-03-03', y: 4},
+		{x: '2019-10-03', y: 5},
+		{x: '2019-17-03', y: 6},
+		{x: '2019-24-03', y: 7}
+		],
+		color: '#229954'
+	},
+	{
+	seriesName: 'VidPT',
+	data: [
+		{x: '2019-03-03', y: 5},
+		{x: '2019-10-03', y: 6},
+		{x: '2019-17-03', y: 7},
+		{x: '2019-24-03', y: 8}
+		],
+		color: '#2E86C1'
+	}
+]
 
-const spec = {
-  "description": "A simple bar chart with embedded data.",
-  "mark": {
-    "type": "line",
-    "point": true
-  },
-  "encoding": {
-    "x": {"field": "Week", "type": "temporal"},
-    "y": {"field": "Score", "type": "quantitative"},
-    "color": {"field": "Metric", "type": "nominal"}
-  }
-};
-
-const barData = {
-  "values": [
-  {"Week": "03/03/19","Metric": "Performance","Score": 1},
-  {"Week": "03/03/19","Metric": "Pain & Range of Motion","Score": 2},
-  {"Week": "03/03/19","Metric": "Consistency","Score": 3},
-  {"Week": "03/03/19","Metric": "Improvement","Score": 4},
-  {"Week": "03/3/19","Metric": "VidPT","Score": 5},
-  {"Week": "03/10/19","Metric": "Performance","Score": 2},
-  {"Week": "03/10/19","Metric": "Pain & Range of Motion","Score": 3},
-  {"Week": "03/10/19","Metric": "Consistency","Score": 4},
-  {"Week": "03/10/19","Metric": "Improvement","Score": 5},
-  {"Week": "03/10/19","Metric": "VidPT","Score": 6},
-  {"Week": "03/17/19","Metric": "Performance","Score": 3},
-  {"Week": "03/17/19","Metric": "Pain & Range of Motion","Score": 4},
-  {"Week": "03/17/19","Metric": "Consistency","Score": 5},
-  {"Week": "03/17/19","Metric": "Improvement","Score": 6},
-  {"Week": "03/17/19","Metric": "VidPT","Score": 7},
-  {"Week": "03/24/19","Metric": "Performance","Score": 4},
-  {"Week": "03/24/19","Metric": "Pain & Range of Motion","Score": 5},
-  {"Week": "03/24/19","Metric": "Consistency","Score": 6},
-  {"Week": "03/24/19","Metric": "Improvement","Score": 7},
-  {"Week": "03/24/19","Metric": "VidPT","Score": 8}
-  ]
-};
-
-      <VegaLite spec={spec} data={barData} />
-      */
-//for every survey make an entry with the date collected, done workout, and strength level etc.
 class ProgressScreen extends Component {
 
   static navigationOptions = {
@@ -80,9 +92,16 @@ class ProgressScreen extends Component {
 
 
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10, paddingBottom: 15}}>Progress Chart</Text>
-        <Card>
-          <Image source={require('../progressplaceholder.png')} style={{alignSelf: 'center', height: 175, width:350}}/>
-        </Card>
+          <View style={{alignItems:'center'}}>
+          <Card>
+              <PureChart
+                type={'line'}
+                data={progressData}
+                height={screenheight*.25}
+              />
+          </Card>
+          </View>
+
 
 
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10, paddingBottom: 15}}>Past Survey Results</Text>

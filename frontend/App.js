@@ -30,6 +30,10 @@ class LoginScreen extends React.Component {
       this.props.navigation.navigate('ChooseInjury');
   }
 
+  _createAccount = () =>{
+      this.props.navigation.navigate('Setup');
+  }
+
   /*
   <SocialIcon
     title='Sign In With Facebook'
@@ -65,6 +69,7 @@ class LoginScreen extends React.Component {
           <TextInput
             placeholder="Password"
             style={styles.input}
+            secureTextEntry
           />
           <View style={{alignItems:'center'}}>
             <TouchableOpacity onPress={this._returningUser} style={{backgroundColor:'#25ace3', borderRadius: 15,width: 180, height: 30}}>
@@ -94,7 +99,7 @@ class LoginScreen extends React.Component {
 
 
 
-        <Button onPress={this._newUser} title="Don't have an account? Sign up"/>
+        <Button onPress={this._createAccount} title="Don't have an account? Sign up"/>
       </View>
 
     );
