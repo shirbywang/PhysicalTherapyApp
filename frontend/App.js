@@ -4,7 +4,7 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View, Button, Image, TextInput, StyleSheet} from 'react-native';
+import {Text, View, Button, Image, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import {SocialIcon} from 'react-native-elements';
 import { createStackNavigator, createAppContainer } from "react-navigation"
 import MainScreen from './MainScreen'
@@ -12,10 +12,15 @@ import SetupScreen from './screens/SetupScreen'
 import ChooseInjuryScreen from './screens/ChooseInjury'
 import InjurySurveyScreen from './screens/InjurySurvey'
 import FinishSurveyScreen from './screens/FinishSurveyScreen'
+import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 //will probably need to create a state to update and collect info
 
 class LoginScreen extends React.Component {
+
+  static navigationOptions = {
+    header: null,
+  }
 
   _returningUser = () =>{
       this.props.navigation.navigate('Main');
@@ -25,39 +30,71 @@ class LoginScreen extends React.Component {
       this.props.navigation.navigate('ChooseInjury');
   }
 
+  /*
+  <SocialIcon
+    title='Sign In With Facebook'
+    button
+    type='facebook'
+    onPress={this._returningUser}
+  />
+
+  <SocialIcon
+    title='Sign In With Google'
+    button
+    type='google-plus-official'
+    onPress={this._newUser}
+  />
+  */
+
   render() {
     return (
       <View style={{flex: 1}}>
-        <View style={{flex: 1, justifyContent:'center'}}>
-          <Image source={require('./logo.png')} style={{alignSelf: 'center'}}/>
-          <Text style={{paddingLeft:90}}>tools that accelerate injury recovery</Text>
+
+
+        <View style={{flex: 1, justifyContent:'center', alignItems:'center'}}>
+          <Image source={require('./logo.png')}/>
+          <Text>tools that accelerate injury recovery</Text>
         </View>
 
-        <View style={styles.container}>
+
+        <KeyboardAvoidingView style={styles.container}>
           <TextInput
-            placeholder="username"
+            placeholder="Email"
             style={styles.input}
           />
           <TextInput
-            placeholder="password"
+            placeholder="Password"
             style={styles.input}
           />
+          <View style={{alignItems:'center'}}>
+            <TouchableOpacity onPress={this._returningUser} style={{backgroundColor:'#25ace3', borderRadius: 15,width: 180, height: 30}}>
+              <Text style={{textAlign:'center', color:'white', fontWeight:'bold', fontSize:20}}>Login</Text>
+            </TouchableOpacity>
+          </View>
+
+        </KeyboardAvoidingView>
+
+        <View style={{alignItems:'center'}}>
+        <Text> Forgot your login? Get Help here</Text>
+
+        <Text style={{paddingTop:10}}>-----Or----</Text>
         </View>
 
-        <SocialIcon
-          title='Sign In With Facebook'
-          button
-          type='facebook'
-          onPress={this._returningUser}
-        />
+        <View style={{flexDirection:'row', padding:20}}>
+          <TouchableOpacity onPress={this._returningUser} style={{flexDirection:'row', paddingRight:20}}>
+            <Icon name="logo-facebook" color='#3b5998' size={30}/>
+            <Text style={{fontSize:15, fontWeight:'bold', paddingLeft:10}}>Log in with Facebook</Text>
+          </TouchableOpacity>
 
-        <SocialIcon
-          title='Sign In With Google'
-          button
-          type='google-plus-official'
-          onPress={this._newUser}
-        />
+          <TouchableOpacity onPress={this._returningUser} style={{flexDirection:'row'}}>
+            <Icon name="logo-googleplus" color='#ea4335' size={30}/>
+            <Text style={{fontSize:15, fontWeight:'bold', paddingLeft:10}}>Log in with Google</Text>
+          </TouchableOpacity>
+        </View>
 
+
+
+        <Button onPress={this._newUser} title="Don't have an account? Sign up"/>
       </View>
 
     );
@@ -83,9 +120,9 @@ const styles = StyleSheet.create({
   },
   input: {
     height:40,
-    backgroundColor: 'blue',
+    backgroundColor: '#efefef',
     marginBottom: 20,
-    color:'#FFF',
+    color:'black',
     paddingHorizontal: 10
   }
   })

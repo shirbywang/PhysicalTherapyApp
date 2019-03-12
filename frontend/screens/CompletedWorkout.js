@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View, Button, Image, StyleSheet, ScrollView, Dimensions} from 'react-native';
-import {Card} from 'react-native-elements';
+import {Text, View, Button, Image, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import {Card, Tile} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
@@ -27,18 +27,6 @@ class CompletedWorkout extends Component{
       header: null,
     }
 
-  /*static navigationOptions = {
-    tabBarIcon: ({ tintColor }) => (
-      <Icon name="md-home" size={25} style={{color:tintColor}}/>
-    ),
-    tabBarOptions: {
-      activeBackgroundColor: '#1c7ef8',
-      activeTintColor: '#1aecb7',
-      inactiveBackgroundColor: '#1c7ef8',
-      inactiveTintColor: 'white'
-    }
-  }*/
-
   home = () =>{
     this.props.navigation.navigate('ViewWorkout');
   }
@@ -50,35 +38,36 @@ class CompletedWorkout extends Component{
       <ScrollView style={styles.container}>
 
         <View style={styles.top}>
-        <Text style={styles.welcome}> Workout Completed </Text>
-
-        <Text> +20 points </Text>
+        <Tile
+          imageSrc={require('../wo_tile.jpg')}
+          title="Workout Completed"
+          titleStyle={styles.welcome}
+          featured
+          />
         </View>
 
         <View style={styles.stats}>
           <Card>
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Streak</Text>
-            <Icon name="md-flame" size={45} color="#ff4858"/>
+            <Icon name="md-flame" size={75} color="#ff4858"/>
             <Text style={{fontSize: 15}}>6 days </Text>
             </View>
           </Card>
           <Card>
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Points</Text>
-            <Icon name="md-ribbon" size={45} color="gold"/>
+            <Icon name="md-ribbon" size={75} color="gold"/>
             <Text style={{fontSize: 15}}>255</Text>
             </View>
           </Card>
         </View>
 
-        <View style={styles.stats} style={{paddingBottom:15}}>
-          <Card>
-            <View style={styles.statscont}>
-            <Button onPress={this.home} title='Back to Workout screen' color="#841584"  accessibilityLabel="Learn more about this purple button"/>
 
-            </View>
-          </Card>
+        <View style={{alignItems:'center', paddingTop: 25}}>
+            <TouchableOpacity onPress={this.home} style={{backgroundColor:'#ff4858', borderRadius: 15,width: 180, height: 30}}>
+              <Text style={{fontSize:20, fontWeight:'bold', color:'white', textAlign:'center'}}>Back to Workout Screen</Text>
+            </TouchableOpacity>
         </View>
 
 
@@ -108,7 +97,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#111d53',
     flex: 1,
-    padding: 15,
+    //padding: 15,
+    paddingBottom:25
   },
   stats:{
     flexDirection: 'row',
@@ -117,16 +107,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  bottom:{
-    height: screenheight*.15,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    paddingTop: 30,
-    paddingLeft:10,
-    paddingRight:10,
-    flex: 1,
-    backgroundColor: 'white'
-  },
   statscont:{
     alignItems: 'center',
     justifyContent: 'center',
@@ -134,10 +114,11 @@ const styles = StyleSheet.create({
   },
   welcome:{
     fontSize: 40,
-    color: '#19d6ad',
+    paddingTop:20,
+    color: 'white',
     fontWeight: 'bold',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 10
+
   }
   });
