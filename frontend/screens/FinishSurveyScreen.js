@@ -10,7 +10,9 @@ class FinishSurveyScreen extends React.Component{
   constructor (props) {
      super(props);
      this.state = {
-      data : this.props.navigation.state.params.data
+      data : this.props.navigation.state.params.data,
+      chosenInjury: this.props.navigation.state.params.chosenInjury,
+      phase: this.props.navigation.state.params.phase,
      }
   }
 
@@ -26,9 +28,13 @@ render() {
   const advanced = <Text>It looks like you are in late stages of your injury. {"\n"} We recommend this routine:</Text>  
 
   let message;
-  if (data.id === 1) {
+  if (this.state.phase === 1) {
       message = basic
-  } else {
+    }
+  else if (this.state.phase === 2){
+      message = moderate
+    } 
+  else {
       message = moderate
   }
 

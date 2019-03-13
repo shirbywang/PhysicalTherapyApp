@@ -77,7 +77,7 @@ _id: int,
   loadNextMove = ()=>{
     //var word = 'hello';
     if (this.state._id+1 > list){
-      this.props.navigation.navigate('Completed');
+      this.props.navigation.navigate('PostWorkoutSurvey');
     }
 
     else if (this.state._id < list){

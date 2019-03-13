@@ -15,6 +15,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import ProgressScreen from './screens/ProgressScreen';
 import DoWorkoutScreen from './screens/DoWorkoutScreen';
 import CompletedWorkout from './screens/CompletedWorkout';
+import PostWorkoutSurveyScreen from './screens/PostWorkoutSurvey';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
@@ -34,6 +35,7 @@ const WorkoutPages = createStackNavigator({
     ViewWorkout: WorkoutScreen,
     DoWorkout: DoWorkoutScreen,
     Completed: CompletedWorkout,
+    PostWorkoutSurvey: PostWorkoutSurveyScreen,
   });
 const WorkContainer = createAppContainer(WorkoutPages)
 

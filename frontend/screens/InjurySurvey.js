@@ -12,11 +12,14 @@ class InjurySurveyScreen extends React.Component{
         q3: '',
         q4 : '',
         goal: '',
-        data: ''
+        data: '',
+        phase: 0,
+        chosenInjury: this.props.navigation.state.params.chosenInjury,
      }
   }
 
 
+  //hardcoded for IT Band
    bucket_weights = {
     q1: {"A":10, "B":6, "C":4, "D": 0, "E": 16, "F": 20, "G": 16}, 
     q3: {"A":6, "B":4, "C":10, "D": 4},
@@ -54,40 +57,82 @@ class InjurySurveyScreen extends React.Component{
       value += this.bucket_weights.q3[this.state.q3]
       value += this.bucket_weights.q4[this.state.q4]
 
-      var phase = 3
-
       if (value > this.bucket_weights.basic){
-          phase = 1
+        this.setState({phase: 1})
       }
 
       else if (value > this.bucket_weights.moderate){
-          phase = 2
+      this.setState({phase: 2})
       }
 
       else if (this.state.q1 === "D"){
         alert("Based on your survey response you are likely suffering from sciatica. The following routine focuses on IT band syndrome. We highly recommend you see a physical therapist or myofascial specialist for your condition. Also, it is always prudent to consult your doctor before starting a new exercise regimen. That being said, we can offer you the following tips and stretches/exercises that may reduce the pain and help combat your condition.")
-        phase = 1
+        this.setState({phase: 1})
       }
 
+      else{
+        this.setState({phase: 3})
+      }
+
+
+
         const fetch = require("node-fetch");
-        const url = "https://jsonplaceholder.typicode.com/todos/1";
+        // const url = "https://jsonplaceholder.typicode.com/todos/1"; //testing demo api
+        const url = "http://35.235.121.237:8000/workout?injury='IT BAND'&phase=" + this.state.phase;
         const getData = async url => {
           try {
-            const response = await fetch(url);
+            const response = await fetch(url); //should give back week # to start in
             const json = await response.json();
             this.setState({ data: json });
-            // alert("yello " + JSON.stringify(this.state.data))
+            alert("test " + this.state.data)
           } catch (error) {
             alert(error);
             console.log(error);
           }
         };
 
-        getData(url).then(() => {
-          this.nextPage();
-    });
+
+        getData().then(() => {this.postUserInfotoDB();})
+        .then(() => {this.nextPage();});
 
       }
+
+   }
+
+//untested as of now until DB is prepared
+  async postUserInfotoDB(){
+
+        userdata = {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: 'fakeemail@gmail.com',
+            name: 'Michael',
+            password: 'fakepassword',
+            streak: 0,
+            points: 0,
+            currentphase: this.state.phase,
+            currentweek: this.state.data.phase,
+            surveydata: {
+              injury: this.state.chosenInjury,
+              q1: this.state.q1,
+              q2: this.state.q2,
+              q3: this.state.q3,
+              q4: this.state.q4,
+              goal: this.state.goal,            }
+          })
+
+          }
+
+         //METHOD TO POST USER DATA -> uncomment when finalize URL
+        // const url_for_userdata = "http://35.235.121.237:8000/user";
+        // fetch(url_for_userdata, userdata).catch(
+        //   (error)=>{
+        //     alert("POST ATTEMPT ERROR: " + error);
+        //     console.error(error);});
 
    }
 
@@ -101,7 +146,7 @@ render(){
         <ScrollView>
         <Text style={{fontSize : 20, fontWeight: "bold", color: "rgb(34, 172, 227)"}}>
 
-          Help us understand your {this.props.navigation.state.params.chosenInjury} injury! {"\n"} </Text>
+          Help us understand your {this.state.chosenInjury} injury! {"\n"} </Text>
 
           <Text> Question 1: Where is your pain located?</Text>
 
