@@ -99,7 +99,7 @@ class LoginScreen extends React.Component {
 
 
 
-        <Button onPress={this._createAccount} title="Don't have an account? Sign up"/>
+        <Button onPress={this._createAccount} color='rgb(34, 172, 227)' title="Don't have an account? Sign up"/>
       </View>
 
     );

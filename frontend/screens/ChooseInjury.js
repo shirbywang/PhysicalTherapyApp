@@ -30,9 +30,9 @@ class ChooseInjuryScreen extends React.Component{
 render() {
   return (
 
-    <View>
+    <View style={{paddingTop:10}}>
 
-        <Text style={{fontSize : 20, fontWeight: "bold", color: "rgb(34, 172, 227)"}}>What is your injury? {"\n"} </Text>
+        <Text style={{fontSize:25, fontWeight:'bold',textAlign: "center"}}>What is your injury? {"\n"} </Text>
       <Collapse
         isCollapsed={this.state.collapsed}>
         <CollapseHeader>
@@ -54,30 +54,12 @@ render() {
 
           <ListItem>
 
-            <Text> Injury </Text>
+            <Text> Patellofemoral Syndrome </Text>
 
           </ListItem>
         </CollapseBody>
       </Collapse>
-      <Collapse isCollapsed={this.state.collapsed}>
-        <CollapseHeader>
-          <Separator bordered>
-           <Text>Back</Text>
-          </Separator>
-        </CollapseHeader>
-        <CollapseBody>
-          <ListItem>
 
-            <Text> Injury </Text>
-
-          </ListItem>
-          <ListItem>
-
-            <Text> Injury </Text>
-
-          </ListItem>
-        </CollapseBody>
-      </Collapse>
 
       <Text> {"\n"} </Text>
       
@@ -91,3 +73,16 @@ render() {
 }
 
 } export default ChooseInjuryScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    padding:20
+  },
+  input: {
+    height:40,
+    backgroundColor: '#efefef',
+    marginBottom: 20,
+    color:'black',
+    paddingHorizontal: 10
+  }
+  })

@@ -41,8 +41,7 @@ class InjurySurveyScreen extends React.Component{
 
     if (this.state.q1 === '' ||
         this.state.q3 === '' ||
-        this.state.q4 === '' ||
-        this.state.goal === '' ){
+        this.state.q4 === ''){
       alert("Please fill out all fields!")
       
     }
@@ -137,14 +136,15 @@ class InjurySurveyScreen extends React.Component{
    }
 
    nextPage(){
-      this.props.navigation.navigate('FinishSurvey', {data : this.state.data});
+      this.props.navigation.navigate('FinishSurvey', {data : this.state.data, chosenInjury: this.state.chosenInjury, phase: this.state.phase});
    }
 
 render(){
 
     return(
-        <ScrollView>
-        <Text style={{fontSize : 20, fontWeight: "bold", color: "rgb(34, 172, 227)"}}>
+        <ScrollView style={{paddingTop:10}}>
+
+        <Text style={{fontSize:25, fontWeight:'bold', textAlign: "center"}}>
 
           Help us understand your {this.state.chosenInjury} injury! {"\n"} </Text>
 
@@ -186,6 +186,9 @@ render(){
             onPress={() => this.setState({q1: "G"})}
           />
 
+
+      <Text> {"\n"} </Text>
+
           <Text>Question 2: What is your Pain Level?</Text>
           <Slider
             step={1}
@@ -197,6 +200,9 @@ render(){
             minimumTrackTintColor='rgb(34, 172, 227)'
           />
           <Text style={{textAlignVertical: "center",textAlign: "center",}}>{this.state.q2}</Text>
+
+
+      <Text> {"\n"} </Text>
 
           <Text>Question 3: When is your pain the worst?</Text>
 
@@ -221,6 +227,8 @@ render(){
             onPress={() => this.setState({q3: "D"})}
           />
 
+      <Text> {"\n"} </Text>
+
           <Text>Balance Test: Can you stand on your bad leg for 10 seconds while keeping your pelvis nice and balanced?</Text>
 
           <CheckBox
@@ -239,6 +247,7 @@ render(){
             onPress={() => this.setState({q4: "M"})}
           />
 
+      <Text> {"\n"} </Text>
 
 
           <Text> What is your goal? </Text>
@@ -249,13 +258,20 @@ render(){
                  autoCapitalize = "none"
                  onChangeText = {this.handleGoal}/>
 
+
+      <Text> {"\n"} </Text>
+
         <Button
-          style={{color: 'rgb(34, 172, 227)'}}
           onPress={() => this.submitAnswers(this.state.q1, this.state.q2, this.state.q3, this.state.q4, this.state.goal)}
           title="Create Workout"
+           color='rgb(34, 172, 227)'
+
         >
           Create Workout
         </Button>
+
+
+      <Text> {"\n"} </Text>
 
     </ScrollView>
     );
@@ -263,3 +279,16 @@ render(){
 }
 
 } export default InjurySurveyScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    padding:20
+  },
+  input: {
+    height:40,
+    backgroundColor: '#efefef',
+    marginBottom: 20,
+    color:'black',
+    paddingHorizontal: 10
+  }
+  })

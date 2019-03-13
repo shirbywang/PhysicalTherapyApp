@@ -35,20 +35,21 @@ render() {
       message = moderate
     } 
   else {
-      message = moderate
+      message = advanced
   }
 
   return (
 
-    <View>
+    <View style={{paddingTop:10}}>
 
-        <Text style={{fontSize : 20, fontWeight: "bold", color: "rgb(34, 172, 227)"}}>Thank you for taking our survey! </Text>
+        <Text style={{fontSize:25, fontWeight:'bold', textAlign: "center"}}>Thank you for taking our injury survey! </Text>
         <Text>{message}</Text>
         <Text>{data.title}{"\n"}</Text>
         <Button
           onPress={() => this.nextPage()}
           title="Start my Physical Therapy Journey!"
           color='rgb(34, 172, 227)'
+
         />
 
      </View>
@@ -56,3 +57,16 @@ render() {
 }
 
 } export default FinishSurveyScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    padding:20
+  },
+  input: {
+    height:40,
+    backgroundColor: '#efefef',
+    marginBottom: 20,
+    color:'black',
+    paddingHorizontal: 10
+  }
+  })

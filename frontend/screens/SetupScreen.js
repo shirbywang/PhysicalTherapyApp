@@ -63,7 +63,7 @@ _injuryscreen = () =>{
 
         </KeyboardAvoidingView>
 
-        <Button onPress={this._injuryscreen} title="Next Step: Injury Survey"/>
+        <Button onPress={this._injuryscreen} color='rgb(34, 172, 227)' title="Next Step: Injury Survey"/>
 
       </View>
 
