@@ -1,3 +1,164 @@
 {
-    "name": "leg press"
+    "size": "16",
+    "exercises": [{
+        "name": "HAMSTRING STRETCH -ACTIVE MUSCLE ENGAGEMENT",
+        "sets": null,
+        "reps": null,
+        "reminders": "The simple stretching exercises target tightness in your hamstring and calf muscles. If you are also tight in IT Band, stretch that as well. Progression: stretching begins with the hamstrings then moves to calves and IT Band.",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "",
+        "genre": ""
+        },
+    {
+        "name": "STANDING HAMSTRING STRETCH", 
+        "sets": "Hold for 30 secs",
+        "reps": "3x",
+        "reminders": "The simple stretching exercises target tightness in your hamstring and calf muscles. If you are also tight in IT Band, stretch that as well. Progression: stretching begins with the hamstrings then moves to calves and IT Band.",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "BASIC CALF STRETCH AGAINST WALL", 
+        "sets": "Hold for 30 secs",
+        "reps": "3x",
+        "reminders": "The simple stretching exercises target tightness in your hamstring and calf muscles. If you are also tight in IT Band, stretch that as well. Progression: stretching begins with the hamstrings then moves to calves and IT Band.",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "CALF STRETCH ON STEP", 
+        "sets": "Hold for 30 secs",
+        "reps": "3x",
+        "reminders": "The simple stretching exercises target tightness in your hamstring and calf muscles. If you are also tight in IT Band, stretch that as well. Progression: stretching begins with the hamstrings then moves to calves and IT Band.",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "IT BAND STRETCH ON FLOOR", 
+        "sets": "Hold for 30 secs",
+        "reps": "3x",
+        "reminders": "The simple stretching exercises target tightness in your hamstring and calf muscles. If you are also tight in IT Band, stretch that as well. Progression: stretching begins with the hamstrings then moves to calves and IT Band.",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "IT BAND STANDING CROSSOVER STRETCH", 
+        "sets": "Hold for 30 secs",
+        "reps": "3x",
+        "reminders": "The simple stretching exercises target tightness in your hamstring and calf muscles. If you are also tight in IT Band, stretch that as well. Progression: stretching begins with the hamstrings then moves to calves and IT Band.",
+        "media": null,
+        "difficulty": "MODERATE",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "QUAD SETS (FIRING VMO)", 
+        "sets": "3; hold for 5 seconds",
+        "reps": "20",
+        "reminders": "",
+        "media": null,
+        "difficulty": "MODERATE",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "VMO STENGTHENING PROGRESSION", 
+        "sets": "3",
+        "reps": "10",
+        "reminders": "",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "WALL SLIDES--SQUATTING PROGRESSION", 
+        "sets": "3",
+        "reps": "10",
+        "reminders": "",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name":"SINGLE LEG KNEE BENDS", 
+        "sets": "3",
+        "reps": "10",
+        "reminders": "",
+        "media": null,
+        "difficulty": "EASY",
+        "bodyPart": "KNEE",
+        "genre": ""
+    },
+    {
+        "name": "STEP-UPS", 
+        "sets": "3",
+        "reps": "10",
+        "reminders": "",
+        "media": null,
+        "difficulty": "MODERATE",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "SINGLE LEG PRESS AT GYM", 
+        "sets": "3",
+        "reps": "12",
+        "reminders": "",
+        "media": null,
+        "difficulty": "MODERATE",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "VECTOR LUNGE SEQUENCE WITH BARBELLS", 
+        "sets": "2",
+        "reps": "10 EACH DIRECTION",
+        "reminders": "",
+        "media": null,
+        "difficulty": "MODERATE",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "SINGLE LEG BALANCE POSE (BASIC AND ADVANCED)", 
+        "sets": "3",
+        "reps": "HOLD 30-45 SEC EACH LEG",
+        "reminders": "",
+        "media": null,
+        "difficulty": "ADVANCED",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "SINGLE LEG BALANCE SQUATS",
+        "sets": "2",
+        "reps": "10-15 REPS PER LEG",
+        "reminders": "",
+        "media": null,
+        "difficulty": "ADVANCED",
+        "bodyPart": "",
+        "genre": ""
+    },
+    {
+        "name": "STEP-UP EXPLOSION DRILLS", 
+        "sets": "2",
+        "reps": "30 IN TOTAL",
+        "reminders": "",
+        "media": null,
+        "difficulty": "ADVANCED",
+        "bodyPart": "",
+        "genre": ""
+    }
+    ]
 }

@@ -1,0 +1,103 @@
+{
+    "injury":
+        {
+            "name": "PATELLOFEMORAL PAIN", 
+            "description": "Pain in the knee may be caused due to increased pressure from the kneecap (patella). Can use medical diagram to explain key issues and targeted muscles. The patella is a 'v shaped' bone that sits in the groove (trochlea) of the thigh bone. The kneecap is abone within the tendon of the quadricep muscles (thigh). The patella stays within the groove of the thigh-bone based on muscle forces and ligament like tissue (retinaculum).",
+            "media": null,
+            "recoveryTime": "8", 
+            "exerciseList": [
+                ["HAMSTRING STRETCH -ACTIVE MUSCLE ENGAGEMENT", 
+                "STANDING HAMSTRING STRETCH", 
+                "BASIC CALF STRETCH AGAINST WALL",
+                "CALF STRETCH ON STEP", 
+                "IT BAND STRETCH ON FLOOR", 
+                "QUAD SETS (FIRING VMO)"
+                ],
+                [
+                    "STANDING HAMSTRING STRETCH", 
+                    "BASIC CALF STRETCH AGAINST WALL",
+                    "CALF STRETCH ON STEP", 
+                    "IT BAND STRETCH ON FLOOR",
+                    "QUAD SETS (FIRING VMO)",
+                    "VMO STENGTHENING PROGRESSION",
+                    "WALL SLIDES--SQUATTING PROGRESSION"
+                ],
+                [
+                    "STANDING HAMSTRING STRETCH", 
+                    "BASIC CALF STRETCH AGAINST WALL",
+                    "CALF STRETCH ON STEP", 
+                    "IT BAND STRETCH ON FLOOR",
+                    "VMO STENGTHENING PROGRESSION",
+                    "WALL SLIDES--SQUATTING PROGRESSION", 
+                    "SINGLE LEG KNEE BENDS"
+                ],
+                [
+                    "STANDING HAMSTRING STRETCH", 
+                    "BASIC CALF STRETCH AGAINST WALL",
+                    "CALF STRETCH ON STEP", 
+                    "IT BAND STRETCH ON FLOOR",
+                    "VMO STENGTHENING PROGRESSION",
+                    "WALL SLIDES--SQUATTING PROGRESSION", 
+                    "SINGLE LEG KNEE BENDS",
+                    "SINGLE LEG BALANCE POSE (BASIC AND ADVANCED)"
+                ],
+                [
+                    "STANDING HAMSTRING STRETCH", 
+                    "BASIC CALF STRETCH AGAINST WALL",
+                    "CALF STRETCH ON STEP", 
+                    "IT BAND STRETCH ON FLOOR",
+                    "VMO STENGTHENING PROGRESSION",
+                    "WALL SLIDES--SQUATTING PROGRESSION", 
+                    "SINGLE LEG KNEE BENDS",
+                    "STEP-UPS",
+                    "SINGLE LEG BALANCE POSE (BASIC AND ADVANCED)"
+                ],
+                [
+                    "STANDING HAMSTRING STRETCH", 
+                    "BASIC CALF STRETCH AGAINST WALL",
+                    "CALF STRETCH ON STEP", 
+                    "IT BAND STRETCH ON FLOOR",
+                    "VMO STENGTHENING PROGRESSION", 
+                    "WALL SLIDES--SQUATTING PROGRESSION",
+                    "SINGLE LEG KNEE BENDS", 
+                    "STEP-UPS",
+                    "SINGLE LEG PRESS AT GYM", 
+                    "VECTOR LUNGE SEQUENCE WITH BARBELLS",
+                    "SINGLE LEG BALANCE POSE (BASIC AND ADVANCED)"
+                  
+                ],
+                [
+                    "STANDING HAMSTRING STRETCH", 
+                    "BASIC CALF STRETCH AGAINST WALL",
+                    "CALF STRETCH ON STEP", 
+                    "IT BAND STRETCH ON FLOOR",
+                    "WALL SLIDES--SQUATTING PROGRESSION",
+                    "SINGLE LEG KNEE BENDS", 
+                    "STEP-UPS",
+                    "SINGLE LEG PRESS AT GYM", 
+                    "VECTOR LUNGE SEQUENCE WITH BARBELLS",
+                    "SINGLE LEG BALANCE POSE (BASIC AND ADVANCED)"
+                  
+                ],
+                [
+                    "STANDING HAMSTRING STRETCH", 
+                    "BASIC CALF STRETCH AGAINST WALL",
+                    "CALF STRETCH ON STEP", 
+                    "IT BAND STRETCH ON FLOOR",
+                    "IT BAND STANDING CROSSOVER STRETCH", 
+                    "WALL SLIDES--SQUATTING PROGRESSION",
+                    "SINGLE LEG PRESS AT GYM", 
+                    "VECTOR LUNGE SEQUENCE WITH BARBELLS",
+                    "SINGLE LEG BALANCE POSE (BASIC AND ADVANCED)",
+                    "SINGLE LEG BALANCE SQUATS",
+                    "STEP-UP EXPLOSION DRILLS"
+                ]
+            ],
+            "phaseDuration": {
+                "1": "2",
+                "2": "3",
+                "3": "3"
+            }
+        }
+  
+}
