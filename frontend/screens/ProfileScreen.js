@@ -36,31 +36,40 @@ static navigationOptions = {
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: '#111d53'}}>
+      <ScrollView style={{flex: 1, backgroundColor: '#111d53'}}>
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Settings</Text>
-        <Card>
-          <View style={{flexDirection: 'row'}}>
+        <Card style={{paddingBottom:10}}>
           <Avatar
             xlarge
             source={{uri: user[0].avatar}}
           />
-          <Text style={{marginBottom: 10,marginLeft:10, paddingTop: 25, fontSize:20}}>
-            Jane Doe {"\n"}Goal: Run a 5k {"\n"}Injury: IT Band {"\n"}Syndrome
-          </Text>
-          </View >
 
-          <View style={{flexDirection: 'row'}}>
-
+              <Text style={{fontSize:20}}>Name:Jane Doe</Text>
+              <Text style={{fontSize:20}}>Goal: Run the Disney half-marathon</Text>
+              <Text style={{fontSize:20}}>Injury: IT Band Syndrome</Text>
+          </Card>
 
 
+          <Card>
+          <View>
+            <ListItem
+            title='Notifications'/>
+            <ListItem
+            title='Change Profile Pic'/>
+            <ListItem
+            title='Change Goal'/>
+            <ListItem
+            title='Privacy'/>
+            <ListItem
+            title='Terms of Use'/>
+            <ListItem
+            title='Disclaimer'/>
+            <ListItem
+            title='Sign Out'/>
           </View>
-
         </Card>
 
-        <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Settings</Text>
-        <Text style={{color:'white', fontSize: 20, paddingTop: 25, paddingLeft: 10}}>Notifications, Change Profile pic, change goal, Privacy, sign out, Terms of use, Disclaimer</Text>
-
-      </View>
+      </ScrollView>
 
     );
   }
