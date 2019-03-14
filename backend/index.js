@@ -175,13 +175,32 @@ app.post("/exercises", (req,res)=>{
 });
 
 app.get("/injury", (req,res)=>{
+  var message = "Injury endpoint hit."; 
   const collection = db.collection('injuries'); 
-  collection.find().toArray(function(err, docs){
+  if(!(req.query.name == undefined)){
+    collection.find({
+      name: req.query.name
+    }).toArray(function(err, docs){
       if(err) throw err; 
       if(docs){
-        res.send(docs);
+        message = docs; 
+        res.write(JSON.stringify(docs)); 
+        res.end(); 
       }
   });
+  }
+  else{
+    collection.find().toArray(function(err, docs){
+      if(err) throw err; 
+      if(docs){
+        res.write(JSON.stringify(docs));
+      }
+      else{
+        res.write(message); 
+      }
+      res.end(); 
+  });
+} 
 });
 
 //Add injury with exercise list 
@@ -287,5 +306,12 @@ app.get('/workout', (req, res) => {
     }
 
 });
+
+app.post('/survey', (req,res)=>{
+
+  res.write({response: 'survey endpoint hit!'});
+  res.end();
+});
+
 
 
