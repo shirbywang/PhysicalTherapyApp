@@ -35,6 +35,7 @@ import {Text, View, Button, Image, StyleSheet, ScrollView} from 'react-native';
 import {Card, ListItem, Avatar, List} from 'react-native-elements';
 
 
+
  const list = users.length;
 
 class DoWorkoutScreen extends Component {
@@ -138,10 +139,12 @@ _id: int,
           </View>
         </View>
 
+        <View>
+        </View>
 
         <View>
           <Card>
-            <Image source={{uri: this.state.media}}
+            <Image source={require('../videos/clamshell.gif')}
               style={{width: 350, height: 200}} />
           </Card>
         </View>
@@ -181,5 +184,12 @@ const styles = StyleSheet.create({
     color:'white',
     fontWeight: 'bold',
     fontSize: 22
-  }
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
 })

@@ -11,7 +11,7 @@ import {Text, View, Image} from 'react-native';
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 import HomeScreen from './screens/HomeScreen';
 import WorkoutScreen from './screens/WorkoutScreen';
-import ProfileScreen from './screens/ProfileScreen';
+import SettingScreen from './screens/SettingScreen';
 import ProgressScreen from './screens/ProgressScreen';
 import DoWorkoutScreen from './screens/DoWorkoutScreen';
 import CompletedWorkout from './screens/CompletedWorkout';
@@ -83,7 +83,7 @@ const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
   Workout: WorkoutPage, //figure out how to make it the main page even tho icon in middle
   Progress: ProgressScreen,
-  Setting: ProfileScreen,
+  Setting: SettingScreen,
 });
 
 

@@ -1,26 +1,22 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
+ * THIS IS THE HOME SCREEN
+ * IT SHOWS THE USER'S STATS (POINTS, STREAKS, PHASE) AND GOAL
  */
 
 import React, {Component} from 'react';
 import {Text, View, Button, Image, StyleSheet, ScrollView, Dimensions} from 'react-native';
-import {Card} from 'react-native-elements';
+import {Card, Avatar} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
 var screenheight = Dimensions.get('window').height;
 var screenwidth = Dimensions.get('window').width;
 
+//load user information from the backend here
 
 class HomeScreen extends Component{
 
-
-  //var screenheight = Dimensions.get('window').height;
-    //console.log(width, height)
+    isNew = true;
 
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
@@ -33,18 +29,36 @@ class HomeScreen extends Component{
       inactiveTintColor: 'white'
     }
   }
-//should display your points and streaks and the start button
 
 
   render(){
+    const newuser = <Image resizeMode='cover' source={{uri:'http://www.advancedsec.com/wp-content/uploads/2018/11/profile-blank.png'}}style={styles.image}/>;
+
+    const returninguser = <Image resizeMode='cover' source={{uri:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'}}style={styles.image}/>;
+
+    if (this.isNew){
+      user = newuser
+      name = 'Victor'//name //whatever is passed from the survey screen
+      streak =  0//streak
+      points = 0//Points
+      phase = 1//Phase
+      goal = 'I want to surf again.'//Goal
+    } else{
+      user = returninguser
+      name = 'Jane'//name //whatever is passed from the login screen
+      streak =  5//streak
+      points = 235//Points
+      phase = 2//Phase
+      goal = 'I want to run the Disney half-marathon.'//Goal
+    }
+
     return(
       <ScrollView style={styles.container}>
 
         <View style={styles.top}>
-        <Text style={styles.welcome}> Welcome, Jane! </Text>
+        <Text style={styles.welcome}> Welcome, {name}! </Text>
 
-          <Image resizeMode='cover' source={{uri:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'}}
-          style={styles.image}/>
+          {user}
         </View>
 
         <View style={styles.stats}>
@@ -52,21 +66,21 @@ class HomeScreen extends Component{
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Streak</Text>
             <Icon name="md-flame" size={45} color="#ff4858"/>
-            <Text style={{fontSize: 15}}>5 days </Text>
+            <Text style={{fontSize: 15}}>{streak} days </Text>
             </View>
           </Card>
           <Card>
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Points</Text>
             <Icon name="md-ribbon" size={45} color="gold"/>
-            <Text style={{fontSize: 15}}>235</Text>
+            <Text style={{fontSize: 15}}>{points}</Text>
             </View>
           </Card>
           <Card>
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Phase</Text>
             <Icon name="md-fitness" size={45} color="grey"/>
-            <Text style={{fontSize: 15}}>Stage 1</Text>
+            <Text style={{fontSize: 15}}>Stage {phase}</Text>
             </View>
           </Card>
         </View>
@@ -74,7 +88,7 @@ class HomeScreen extends Component{
         <View style={styles.stats} style={{paddingBottom:15}}>
           <Card>
             <View style={styles.statscont}>
-            <Text style={{fontWeight:'bold', fontSize: 20}}> Goal </Text><Text style={{fontSize:15}}>I want to run the Disney half-marathon. </Text>
+            <Text style={{fontWeight:'bold', fontSize: 20}}> Goal </Text><Text style={{fontSize:15}}>{goal} </Text>
             </View>
           </Card>
         </View>
