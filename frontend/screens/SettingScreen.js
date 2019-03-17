@@ -26,6 +26,10 @@ static navigationOptions = {
   }
 }
 
+_logout = () =>{
+    this.props.navigation.navigate('Login');
+}
+
   render() {
 
     const newuser = <Avatar xlarge source={{uri: 'http://www.advancedsec.com/wp-content/uploads/2018/11/profile-blank.png'}}/>;
@@ -71,7 +75,8 @@ static navigationOptions = {
             <ListItem
             title='Disclaimer'/>
             <ListItem
-            title='Sign Out'/>
+            title='Sign Out'
+            onPress={this._logout}/>
           </View>
         </Card>
 

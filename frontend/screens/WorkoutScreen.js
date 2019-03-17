@@ -9,19 +9,44 @@
  const workout = [
   {
      name: 'Clamshell',
-     num: 1,
-     avatar: 'https://i.ytimg.com/vi/m7RyKQV4XhE/maxresdefault.jpg',
+     avatar:<Image source={require('../videos/preview/clamshellss.png')}
+            style={{width: 150, height: 100}} />,
   },
   {
     name: 'Lateral Leg Raises',
-    num: 2,
-    avatar: "https://st1.thehealthsite.com/wp-content/uploads/2016/12/standing-leg-stretches-vs-lying-down-THS-655x353.jpg",
+    avatar: <Image source={require('../videos/preview/legraisesss.png')}
+           style={{width: 150, height: 100}} />,
   },
   {
     name: 'VMO Exercise',
-    num: 3,
-    avatar: "https://www.ghtraining.co.uk/perch/resources/staright-leg-raise.jpg",
-  }
+    avatar: <Image source={require('../videos/preview/vmoss.png')}
+           style={{width: 150, height: 100}} />,
+  },
+  {
+    name: 'Lateral Sidesteps with Band',
+    avatar: <Image source={require('../videos/preview/lateralsidestepss.png')}
+                  style={{width: 150, height: 100}} />,
+  },
+  {
+    name: 'Single Leg Quarter Squats',
+    avatar: <Image source={require('../videos/preview/singlequarterss.png')}
+                  style={{width: 150, height: 100}} />,
+  },
+  {
+    name: 'Hamstring Stretch',
+    avatar: <Image source={require('../videos/preview/hamstringss.png')}
+                  style={{width: 150, height: 100}} />,
+  },
+  {
+    name: 'Hip Flexor Stretch',
+    avatar: <Image source={require('../videos/preview/hipflexorss.png')}
+                  style={{width: 150, height: 100}} />,
+  },
+  {
+    name: 'Cross-Over Stretch',
+    avatar: <Image source={require('../videos/preview/crossoverss.png')}
+                  style={{width: 150, height: 100}} />,
+  },
  ]
 
 import React, {Component} from 'react';
@@ -65,11 +90,10 @@ class WorkoutScreen extends Component {
 
         <List containerStyle={{marginBottom: 20}}>
         {
-          workout.map((item, key)=>(
+          workout.map((item)=>(
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Image source={{uri: item.avatar}}
-                style={{width: 150, height: 100}} />
-              <Text key = {key} style={{fontSize:20, paddingTop:15, paddingRight: 25}}>{item.name}</Text>
+              {item.avatar}
+              <Text style={{fontSize:20, paddingTop:15, paddingRight: 25}}>{item.name}</Text>
               </View>
 
           ))

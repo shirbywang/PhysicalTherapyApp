@@ -12,6 +12,7 @@ import SetupScreen from './screens/SetupScreen'
 import ChooseInjuryScreen from './screens/ChooseInjury'
 import InjurySurveyScreen from './screens/InjurySurvey'
 import FinishSurveyScreen from './screens/FinishSurveyScreen'
+import SettingScreen from './screens/SettingScreen'
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 //will probably need to create a state to update and collect info
@@ -33,22 +34,6 @@ class LoginScreen extends React.Component {
   _createAccount = () =>{
       this.props.navigation.navigate('Setup');
   }
-
-  /*
-  <SocialIcon
-    title='Sign In With Facebook'
-    button
-    type='facebook'
-    onPress={this._returningUser}
-  />
-
-  <SocialIcon
-    title='Sign In With Google'
-    button
-    type='google-plus-official'
-    onPress={this._newUser}
-  />
-  */
 
   render() {
     return (
