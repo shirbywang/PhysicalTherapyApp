@@ -14,15 +14,22 @@ class InjurySurveyScreen extends React.Component{
         goal: '',
         data: '',
         phase: 0,
+        week: 0,
+        exercises: [],
         chosenInjury: this.props.navigation.state.params.chosenInjury,
+        url: this.props.navigation.state.params.url,
+        testurl: '',
+        name: this.props.navigation.state.params.name,
+        email: this.props.navigation.state.params.email,
+        password: this.props.navigation.state.params.password,
      }
   }
 
 
   //hardcoded for IT Band
    bucket_weights = {
-    q1: {"A":10, "B":6, "C":4, "D": 0, "E": 16, "F": 20, "G": 16}, 
-    q3: {"A":6, "B":4, "C":10, "D": 4},
+    q1: {"A":20, "B":12, "C":8, "D": 0, "E": 32, "F": 40, "G": 32}, 
+    q3: {"A":18, "B":12, "C":30, "D": 12},
     q4: {"Y":0, "N":10, "M": 5},
     basic: 81,
     moderate: 62,
@@ -52,16 +59,18 @@ class InjurySurveyScreen extends React.Component{
 
       var value = 0
       value = this.bucket_weights.q1[this.state.q1]
-      value += this.state.q2 * 2
+      value += this.state.q2 * 16
       value += this.bucket_weights.q3[this.state.q3]
       value += this.bucket_weights.q4[this.state.q4]
 
       if (value > this.bucket_weights.basic){
+        //basic routine
         this.setState({phase: 1})
       }
 
       else if (value > this.bucket_weights.moderate){
-      this.setState({phase: 2})
+        //moderate routine
+        this.setState({phase: 2})
       }
 
       else if (this.state.q1 === "D"){
@@ -70,35 +79,32 @@ class InjurySurveyScreen extends React.Component{
       }
 
       else{
+        //advanced routine
         this.setState({phase: 3})
       }
 
-
-
-        const fetch = require("node-fetch");
-        // const url = "https://jsonplaceholder.typicode.com/todos/1"; //testing demo api
-        const url = "http://35.235.121.237:8000/workout?injury='IT BAND'&phase=" + this.state.phase;
         const getData = async url => {
           try {
-            const response = await fetch(url); //should give back week # to start in
+            const fetch = require("node-fetch");
+            const url = "http://" + this.state.url + ":8000/injury?name=PATELLOFEMORAL%20PAIN";
+            const response = await fetch(url);
             const json = await response.json();
             this.setState({ data: json });
-            alert("test " + this.state.data)
+            this.setState({ week : this.state.data[0]["phaseDuration"][this.state.phase]});
+            this.setState({ exercises : this.state.data[0]["exerciseList"][parseFloat(this.state.week)-1]})
           } catch (error) {
             alert(error);
             console.log(error);
           }
         };
 
-
-        getData().then(() => {this.postUserInfotoDB();})
-        .then(() => {this.nextPage();});
+        getData().then(() => {this.nextPage();});
 
       }
 
    }
 
-//untested as of now until DB is prepared
+//UNTESTED
   async postUserInfotoDB(){
 
         userdata = {
@@ -108,9 +114,9 @@ class InjurySurveyScreen extends React.Component{
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            email: 'fakeemail@gmail.com',
-            name: 'Michael',
-            password: 'fakepassword',
+            email: this.state.email,
+            name: this.state.name,
+            password: this.state.password,
             streak: 0,
             points: 0,
             currentphase: this.state.phase,
@@ -123,20 +129,14 @@ class InjurySurveyScreen extends React.Component{
               q4: this.state.q4,
               goal: this.state.goal,            }
           })
-
           }
-
-         //METHOD TO POST USER DATA -> uncomment when finalize URL
-        // const url_for_userdata = "http://35.235.121.237:8000/user";
-        // fetch(url_for_userdata, userdata).catch(
-        //   (error)=>{
-        //     alert("POST ATTEMPT ERROR: " + error);
-        //     console.error(error);});
 
    }
 
    nextPage(){
-      this.props.navigation.navigate('FinishSurvey', {data : this.state.data, chosenInjury: this.state.chosenInjury, phase: this.state.phase});
+      this.props.navigation.navigate('FinishSurvey', {data : this.state.data, chosenInjury: this.state.chosenInjury, 
+                                                      phase: this.state.phase, url: this.state.url,
+                                                      week: this.state.week, exercises: this.state.exercises});
    }
 
 render(){
@@ -146,7 +146,7 @@ render(){
 
         <Text style={{fontSize:25, fontWeight:'bold', textAlign: "center"}}>
 
-          Help us understand your {this.state.chosenInjury} injury! {"\n"} </Text>
+          Help us understand your IT Band injury! {"\n"} </Text>
 
           <Text> Question 1: Where is your pain located?</Text>
 

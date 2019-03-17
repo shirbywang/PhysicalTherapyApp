@@ -13,6 +13,7 @@ class FinishSurveyScreen extends React.Component{
       data : this.props.navigation.state.params.data,
       chosenInjury: this.props.navigation.state.params.chosenInjury,
       phase: this.props.navigation.state.params.phase,
+      exercises: this.props.navigation.state.params.exercises,
      }
   }
 
@@ -22,10 +23,10 @@ class FinishSurveyScreen extends React.Component{
 
 render() {
 
-  const data = this.state.data
-  const basic = <Text>It looks like you are in early stages of your injury. {"\n"} We recommend this routine:</Text>         
-  const moderate = <Text>It looks like you are in mid stages of your injury. {"\n"} We recommend this routine:</Text>  
-  const advanced = <Text>It looks like you are in late stages of your injury. {"\n"} We recommend this routine:</Text>  
+  const exercises = this.state.exercises;
+  const basic = <Text>It looks like you are in early stages of your injury. {"\n"}We recommend this routine:</Text>         
+  const moderate = <Text>It looks like you are in mid stages of your injury. {"\n"}We recommend this routine:</Text>  
+  const advanced = <Text>It looks like you are in late stages of your injury. {"\n"}We recommend this routine:{"\n"}</Text>  
 
   let message;
   if (this.state.phase === 1) {
@@ -40,19 +41,28 @@ render() {
 
   return (
 
-    <View style={{paddingTop:10}}>
+    <View>
 
-        <Text style={{fontSize:25, fontWeight:'bold', textAlign: "center"}}>Thank you for taking our injury survey! </Text>
-        <Text>{message}</Text>
-        <Text>{data.title}{"\n"}</Text>
+        <Text>{"\n"}</Text>
+        <Text style={{fontSize:25, fontWeight:'bold', textAlign: "center"}}>Thank you for taking our survey! </Text>
+        <Text>{"\n"}</Text>
+    
+        <Text style={{fontSize:15, textAlign: "center"}}>{message}</Text>
+        <Text>{"\n"}</Text>
+
+         { exercises.map((item, key)=>(
+         <Text style={{fontSize:15, textAlign: "center"}} key={key} > { item } </Text>)
+         )}
+
+        <Text>{"\n"}</Text>
+
         <Button
           onPress={() => this.nextPage()}
           title="Start my Physical Therapy Journey!"
           color='rgb(34, 172, 227)'
-
         />
 
-     </View>
+    </View>
   );
 }
 

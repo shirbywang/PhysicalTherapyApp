@@ -16,9 +16,31 @@ class SetupScreen extends Component {
 //Ask for name, email, password, confirm password
 //needs to pass the states over
 
-_injuryscreen = () =>{
-    this.props.navigation.navigate('ChooseInjury');
-}
+constructor (props) {
+  super(props)
+  this.state = {
+    url: this.props.navigation.state.params.url,
+    name: '',
+    email: '',
+    password: ''
+    }
+  }
+
+  _injuryscreen = () =>{
+      this.props.navigation.navigate('ChooseInjury', {url: this.state.url, name: this.state.name, email: this.state.email, password: this.state.password});
+  }
+
+  _handleName = (text) =>{
+      this.setState({ name: text })  
+    }
+
+  _handleEmail = (text) =>{
+      this.setState({ email: text })  
+    }
+
+  _handlePassword = (text) =>{
+      this.setState({ password: text })  
+    }
 
   render() {
     return (
@@ -35,6 +57,7 @@ _injuryscreen = () =>{
             <Text>Name: </Text>
             <TextInput
               style={styles.input}
+              onChangeText = {this._handleName}
             />
           </View>
 
@@ -42,6 +65,7 @@ _injuryscreen = () =>{
             <Text>Email: </Text>
             <TextInput
               style={styles.input}
+              onChangeText = {this._handleEmail}
             />
           </View>
 
@@ -50,6 +74,7 @@ _injuryscreen = () =>{
             <TextInput
               style={styles.input}
               secureTextEntry
+              onChangeText = {this._handlePassword}
             />
           </View>
 
