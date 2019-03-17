@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, Dimensions} from 'react-native';
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 import HomeScreen from './screens/HomeScreen';
 import WorkoutScreen from './screens/WorkoutScreen';
@@ -19,10 +19,12 @@ import PostWorkoutSurveyScreen from './screens/PostWorkoutSurvey';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 
+var screenwidth = Dimensions.get('window').width;
+
 class LogoTitle extends Component{
   render() {
     return (
-      <View style={{padding: 150}}>
+      <View style={{padding: (screenwidth*.38)}}>
         <Image source={require('./logo.png')}/>
       </View>
     );

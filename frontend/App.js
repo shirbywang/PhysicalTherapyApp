@@ -70,7 +70,7 @@ class LoginScreen extends React.Component {
         <Text style={{paddingTop:10}}>-----Or----</Text>
         </View>
 
-        <View style={{flexDirection:'row', padding:20}}>
+        <View style={{padding:20, alignItems:'center'}}>
           <TouchableOpacity onPress={this._returningUser} style={{flexDirection:'row', paddingRight:20}}>
             <Icon name="logo-facebook" color='#3b5998' size={30}/>
             <Text style={{fontSize:15, fontWeight:'bold', paddingLeft:10}}>Log in with Facebook</Text>

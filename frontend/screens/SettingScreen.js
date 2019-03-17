@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 class SettingScreen extends Component{
 
- isNew=true;
+ isNew=false;
 
 static navigationOptions = {
   tabBarIcon: ({ tintColor }) => (

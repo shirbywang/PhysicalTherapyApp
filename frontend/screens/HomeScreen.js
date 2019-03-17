@@ -16,7 +16,7 @@ var screenwidth = Dimensions.get('window').width;
 
 class HomeScreen extends Component{
 
-    isNew = true;
+    isNew = false;
 
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
@@ -47,8 +47,8 @@ class HomeScreen extends Component{
       user = returninguser
       name = 'Jane'//name //whatever is passed from the login screen
       streak =  5//streak
-      points = 235//Points
-      phase = 2//Phase
+      points = 135//Points
+      phase = 1//Phase
       goal = 'I want to run the Disney half-marathon.'//Goal
     }
 
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
       width: screenwidth*.5,
       height: screenwidth*.5,
       borderRadius:100,
-      borderWidth:4
+      borderWidth:4,
   },
   top:{
     height: screenheight*.45,

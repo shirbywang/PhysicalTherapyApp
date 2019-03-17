@@ -1,59 +1,58 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * THIS IS THE MAIN WORKOUT SCREEN. USERS CAN VIEW A LIST OF EXERCISES BEFORE STARTING THEIR ROUTINE.
  *
  * @format
  * @flow
  */
-
- const workout = [
-  {
-     name: 'Clamshell',
-     avatar:<Image source={require('../videos/preview/clamshellss.png')}
-            style={{width: 150, height: 100}} />,
-  },
-  {
-    name: 'Lateral Leg Raises',
-    avatar: <Image source={require('../videos/preview/legraisesss.png')}
-           style={{width: 150, height: 100}} />,
-  },
-  {
-    name: 'VMO Exercise',
-    avatar: <Image source={require('../videos/preview/vmoss.png')}
-           style={{width: 150, height: 100}} />,
-  },
-  {
-    name: 'Lateral Sidesteps with Band',
-    avatar: <Image source={require('../videos/preview/lateralsidestepss.png')}
-                  style={{width: 150, height: 100}} />,
-  },
-  {
-    name: 'Single Leg Quarter Squats',
-    avatar: <Image source={require('../videos/preview/singlequarterss.png')}
-                  style={{width: 150, height: 100}} />,
-  },
-  {
-    name: 'Hamstring Stretch',
-    avatar: <Image source={require('../videos/preview/hamstringss.png')}
-                  style={{width: 150, height: 100}} />,
-  },
-  {
-    name: 'Hip Flexor Stretch',
-    avatar: <Image source={require('../videos/preview/hipflexorss.png')}
-                  style={{width: 150, height: 100}} />,
-  },
-  {
-    name: 'Cross-Over Stretch',
-    avatar: <Image source={require('../videos/preview/crossoverss.png')}
-                  style={{width: 150, height: 100}} />,
-  },
- ]
 
 import React, {Component} from 'react';
 import {Text, View, Button, TouchableOpacity, FlatList, Image, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {Card, ListItem, Avatar, List, Tile} from 'react-native-elements';
 
+
+const workout = [
+ {
+    name: 'Clamshell',
+    avatar:<Image source={require('../videos/preview/clamshellss.png')}
+           style={{width: 150, height: 100}} />,
+ },
+ {
+   name: 'Lateral Leg Raises',
+   avatar: <Image source={require('../videos/preview/legraisesss.png')}
+          style={{width: 150, height: 100}} />,
+ },
+ {
+   name: 'VMO Exercise',
+   avatar: <Image source={require('../videos/preview/vmoss.png')}
+          style={{width: 150, height: 100}} />,
+ },
+ {
+   name: 'Lateral Sidesteps \nwith Band',
+   avatar: <Image source={require('../videos/preview/lateralsidestepss.png')}
+                 style={{width: 150, height: 100}} />,
+ },
+ {
+   name: 'Single Leg Quarter \nSquats',
+   avatar: <Image source={require('../videos/preview/singlequarterss.png')}
+                 style={{width: 150, height: 100}} />,
+ },
+ {
+   name: 'Hamstring Stretch',
+   avatar: <Image source={require('../videos/preview/hamstringss.png')}
+                 style={{width: 150, height: 100}} />,
+ },
+ {
+   name: 'Hip Flexor Stretch',
+   avatar: <Image source={require('../videos/preview/hipflexorss.png')}
+                 style={{width: 150, height: 100}} />,
+ },
+ {
+   name: 'Cross-Over Stretch',
+   avatar: <Image source={require('../videos/preview/crossoverss.png')}
+                 style={{width: 150, height: 100}} />,
+ },
+]
 
 class WorkoutScreen extends Component {
 
@@ -91,7 +90,7 @@ class WorkoutScreen extends Component {
         <List containerStyle={{marginBottom: 20}}>
         {
           workout.map((item)=>(
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View key={item} style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
               {item.avatar}
               <Text style={{fontSize:20, paddingTop:15, paddingRight: 25}}>{item.name}</Text>
               </View>
