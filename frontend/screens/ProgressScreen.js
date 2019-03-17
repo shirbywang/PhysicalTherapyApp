@@ -23,7 +23,7 @@ let progressData = [
 		{x: '2019-03-03', y: 1},
 		{x: '2019-10-03', y: 2},
 		{x: '2019-17-03', y: 3},
-		{x: '2019-24-03', y: 4}
+		{x: '2019-18-03', y: 4}
 		],
 		color: '#7D3C98'
 	},
@@ -33,7 +33,7 @@ let progressData = [
 		{x: '2019-03-03', y: 2},
 		{x: '2019-10-03', y: 3},
 		{x: '2019-17-03', y: 4},
-		{x: '2019-24-03', y: 5}
+		{x: '2019-18-03', y: 5}
 		],
 		color: '#CA6F1E'
 	},
@@ -43,7 +43,7 @@ let progressData = [
 		{x: '2019-03-03', y: 3},
 		{x: '2019-10-03', y: 4},
 		{x: '2019-17-03', y: 5},
-		{x: '2019-24-03', y: 6}
+		{x: '2019-18-03', y: 6}
 		],
 		color: '#CB4335'
 	},
@@ -53,7 +53,7 @@ let progressData = [
 		{x: '2019-03-03', y: 4},
 		{x: '2019-10-03', y: 5},
 		{x: '2019-17-03', y: 6},
-		{x: '2019-24-03', y: 7}
+		{x: '2019-18-03', y: 7}
 		],
 		color: '#229954'
 	},
@@ -63,7 +63,7 @@ let progressData = [
 		{x: '2019-03-03', y: 5},
 		{x: '2019-10-03', y: 6},
 		{x: '2019-17-03', y: 7},
-		{x: '2019-24-03', y: 8}
+		{x: '2019-18-03', y: 8}
 		],
 		color: '#2E86C1'
 	}
@@ -90,7 +90,7 @@ class ProgressScreen extends Component {
 
     const returningsurvey=
     <View>
-        <Card title='March 24, 2019'>
+        <Card title='March 18, 2019'>
         <View style={styles.stats}>
           <Icon name="md-fitness" size={25}/>
           <Text style={{fontSize:20, paddingLeft:45}}>Range of Motion: 4</Text>
