@@ -34,6 +34,19 @@ class CompletedWorkout extends Component{
 
 
   render(){
+    if(global.newuser){
+      global.newstreak=global.newstreak+1
+      global.newpoints = global.newpoints+5
+      streak = global.newstreak
+      points = '+5'
+    }
+    else{
+      global.returningstreak=global.returningstreak+1
+      global.returningpoints = global.returningpoints+5
+      streak = global.returningstreak
+      points = '+5'
+    }
+
     return(
       <ScrollView style={styles.container}>
 
@@ -51,14 +64,14 @@ class CompletedWorkout extends Component{
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Streak</Text>
             <Icon name="md-flame" size={75} color="#ff4858"/>
-            <Text style={{fontSize: 15}}>6 days </Text>
+            <Text style={{fontSize: 15}}>{streak} days </Text>
             </View>
           </Card>
           <Card>
             <View style={styles.statscont}>
             <Text style={{fontSize: 20, fontWeight:'bold'}}>Points</Text>
             <Icon name="md-ribbon" size={75} color="gold"/>
-            <Text style={{fontSize: 15}}>255</Text>
+            <Text style={{fontSize: 15}}>{points}</Text>
             </View>
           </Card>
         </View>

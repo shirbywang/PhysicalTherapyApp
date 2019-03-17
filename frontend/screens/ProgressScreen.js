@@ -87,19 +87,96 @@ class ProgressScreen extends Component {
 
 
   render() {
+
+    const returningsurvey=
+    <View>
+        <Card title='March 24, 2019'>
+        <View style={styles.stats}>
+          <Icon name="md-fitness" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45}}>Range of Motion: 4</Text>
+        </View>
+        <View style={styles.stats}>
+          <Icon name="md-bicycle" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45, textAlign:'right'}}>Performance: 10</Text>
+        </View>
+      </Card>
+
+      <Card title='March 17, 2019'>
+        <View style={styles.stats}>
+          <Icon name="md-fitness" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45}}>Strength: 4</Text>
+        </View>
+        <View style={styles.stats}>
+          <Icon name="md-bicycle" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45, textAlign:'right'}}>Performance: 10</Text>
+        </View>
+      </Card>
+
+      <Card title='March 10, 2019'>
+
+        <View style={styles.stats}>
+          <Icon name="md-fitness" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45}}>Range of Motion: 4</Text>
+        </View>
+        <View style={styles.stats}>
+          <Icon name="md-bicycle" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45, textAlign:'right'}}>Performance: 10</Text>
+        </View>
+
+      </Card>
+
+      <Card title='March 3, 2019'>
+        <View style={styles.stats}>
+          <Icon name="md-fitness" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45}}>Strength: 4</Text>
+        </View>
+        <View style={styles.stats}>
+          <Icon name="md-bicycle" size={25}/>
+          <Text style={{fontSize:20, paddingLeft:45, textAlign:'right'}}>Performance: 10</Text>
+        </View>
+      </Card>
+  </View>
+
+  const returningchart = <View>
+  <Card>
+        <PureChart
+          type={'line'}
+          data={progressData}
+          height={screenheight*.25}
+        />
+    </Card>
+  </View>
+
+  const newsurvey=
+      <View>
+        <Card>
+          <Text>No Post Workout Survey Completed</Text>
+        </Card>
+      </View>
+
+    const newchart=
+      <View>
+        <Card>
+          <Text>Your progress will be tracked here!</Text>
+        </Card>
+      </View>
+
+    if (!global.newuser){
+      surveyentry = returningsurvey
+      chart = returningchart
+    }
+    else{
+      surveyentry=newsurvey
+      chart = newchart
+    }
+
     return (
       <ScrollView style={{flex: 1, backgroundColor: '#111d53'}}>
 
 
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10, paddingBottom: 15}}>Progress Chart</Text>
           <View style={{alignItems:'center'}}>
-          <Card>
-              <PureChart
-                type={'line'}
-                data={progressData}
-                height={screenheight*.25}
-              />
-          </Card>
+            {chart}
           </View>
 
 
@@ -107,30 +184,7 @@ class ProgressScreen extends Component {
         <Text style={{color:'white', fontWeight: 'bold', fontSize: 20, paddingTop: 25, paddingLeft: 10, paddingBottom: 15}}>Past Survey Results</Text>
 
         <View>
-          <Card title='March 1, 2019'>
-
-            <View style={styles.stats}>
-              <Icon name="md-fitness" size={25}/>
-              <Text style={{fontSize:20, paddingLeft:45}}>Range of Motion: 4</Text>
-            </View>
-            <View style={styles.stats}>
-              <Icon name="md-bicycle" size={25}/>
-              <Text style={{fontSize:20, paddingLeft:45, textAlign:'right'}}>Performance: 10</Text>
-            </View>
-
-          </Card>
-
-          <Card title='March 4, 2019'>
-
-            <View style={styles.stats}>
-              <Icon name="md-fitness" size={25} color="#ff4858"/>
-              <Text style={{fontSize:20, paddingLeft:45}}>Strength: 4</Text>
-            </View>
-            <View style={styles.stats}>
-              <Icon name="md-bicycle" size={25} color="#ff4858"/>
-              <Text style={{fontSize:20, paddingLeft:45, textAlign:'right'}}>Performance: 10</Text>
-            </View>
-          </Card>
+          {surveyentry}
 
         </View>
 

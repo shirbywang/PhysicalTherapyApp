@@ -16,7 +16,6 @@ var screenwidth = Dimensions.get('window').width;
 
 class HomeScreen extends Component{
 
-    isNew = false;
 
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
@@ -32,22 +31,22 @@ class HomeScreen extends Component{
 
 
   render(){
-    const newuser = <Image resizeMode='cover' source={{uri:'http://www.advancedsec.com/wp-content/uploads/2018/11/profile-blank.png'}}style={styles.image}/>;
+    const Newuser = <Image resizeMode='cover' source={{uri:'http://www.advancedsec.com/wp-content/uploads/2018/11/profile-blank.png'}}style={styles.image}/>;
 
     const returninguser = <Image resizeMode='cover' source={{uri:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'}}style={styles.image}/>;
 
-    if (this.isNew){
-      user = newuser
+    if (global.newuser){
+      user = Newuser
       name = 'Victor'//name //whatever is passed from the survey screen
-      streak =  0//streak
-      points = 0//Points
+      streak =  global.newstreak//streak
+      points = global.newpoints//Points
       phase = 1//Phase
-      goal = 'I want to surf again.'//Goal
+      goal = 'I want to be able to surf again.'//Goal
     } else{
       user = returninguser
       name = 'Jane'//name //whatever is passed from the login screen
-      streak =  5//streak
-      points = 135//Points
+      streak =  global.returningstreak//streak
+      points = global.returningpoints//Points
       phase = 1//Phase
       goal = 'I want to run the Disney half-marathon.'//Goal
     }

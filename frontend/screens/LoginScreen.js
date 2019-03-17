@@ -19,6 +19,7 @@ constructor (props) {
   }
 
   _returningUser = () =>{
+      global.newuser = false;
       this.props.navigation.navigate('Main');
   }
 
@@ -27,25 +28,6 @@ constructor (props) {
   }
 
 
-/*
-  _newUser = () =>{
-      this.props.navigation.navigate('ChooseInjury');
-  }
-
-  <SocialIcon
-    title='Sign In With Facebook'
-    button
-    type='facebook'
-    onPress={this._returningUser}
-  />
-
-  <SocialIcon
-    title='Sign In With Google'
-    button
-    type='google-plus-official'
-    onPress={this._newUser}
-  />
-  */
 
   render() {
     return (

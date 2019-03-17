@@ -12,8 +12,6 @@ import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 class SettingScreen extends Component{
 
- isNew=false;
-
 static navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
     <Icon name="md-settings" size={25} style={{color: tintColor}}/>
@@ -36,14 +34,14 @@ _logout = () =>{
 
     const returninguser = <Avatar xlarge source={{uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'}}/>;
 
-    if (this.isNew){
+    if (global.newuser){
       user = newuser
-      name = 'Victor'//name //whatever is passed from the survey screen
+      name = 'Victor'
       injury= 'IT Band Syndrome'
-      goal = 'I want to surf again.'//Goal
+      goal = 'I want to be able to surf again.'//Goal
     } else{
       user = returninguser
-      name = 'Jane'//name //whatever is passed from the login screen
+      name = 'Jane'
       injury= 'IT Band Syndrome'
       goal = 'I want to run the Disney half-marathon.'//Goal
     }

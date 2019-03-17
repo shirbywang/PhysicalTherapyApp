@@ -18,15 +18,16 @@ class FinishSurveyScreen extends React.Component{
   }
 
    nextPage(){
+      global.newuser=true;
       this.props.navigation.navigate('Main');
    }
 
 render() {
 
   const exercises = this.state.exercises;
-  const basic = <Text>It looks like you are in early stages of your injury. {"\n"}We recommend this routine:</Text>         
-  const moderate = <Text>It looks like you are in mid stages of your injury. {"\n"}We recommend this routine:</Text>  
-  const advanced = <Text>It looks like you are in late stages of your injury. {"\n"}We recommend this routine:{"\n"}</Text>  
+  const basic = <Text>It looks like you are in early stages of your injury. {"\n"}We recommend this routine:</Text>
+  const moderate = <Text>It looks like you are in mid stages of your injury. {"\n"}We recommend this routine:</Text>
+  const advanced = <Text>It looks like you are in late stages of your injury. {"\n"}We recommend this routine:{"\n"}</Text>
 
   let message;
   if (this.state.phase === 1) {
@@ -34,7 +35,7 @@ render() {
     }
   else if (this.state.phase === 2){
       message = moderate
-    } 
+    }
   else {
       message = advanced
   }
@@ -46,7 +47,7 @@ render() {
         <Text>{"\n"}</Text>
         <Text style={{fontSize:25, fontWeight:'bold', textAlign: "center"}}>Thank you for taking our survey! </Text>
         <Text>{"\n"}</Text>
-    
+
         <Text style={{fontSize:15, textAlign: "center"}}>{message}</Text>
         <Text>{"\n"}</Text>
 
