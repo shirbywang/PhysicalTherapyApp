@@ -12,7 +12,11 @@ class ChooseInjuryScreen extends React.Component{
      super(props)
      this.state = {
        chosenInjury: '',
-       collapsed: false
+       collapsed: false,
+       url: this.props.navigation.state.params.url,
+       name: this.props.navigation.state.params.name,
+       email: this.props.navigation.state.params.email,
+       password: this.props.navigation.state.params.password
      }
   }
 
@@ -22,7 +26,8 @@ class ChooseInjuryScreen extends React.Component{
       
     }
     else{
-      this.props.navigation.navigate('InjurySurvey', {chosenInjury : this.state.chosenInjury});
+      this.props.navigation.navigate('InjurySurvey', {chosenInjury : this.state.chosenInjury, url: this.state.url, 
+        name: this.state.name, email: this.state.email, password: this.state.password});
     }
 
    }
@@ -45,8 +50,8 @@ render() {
 
         <CheckBox
           title = "IT Band Syndrome"
-          checked = {this.state.chosenInjury === "IT Band Syndrome"}
-          onPress={() => this.setState({chosenInjury: "IT Band Syndrome",
+          checked = {this.state.chosenInjury === "PATELLOFEMORAL PAIN"}
+          onPress={() => this.setState({chosenInjury: "PATELLOFEMORAL PAIN",
                                         collapsed: true})}
         />
 

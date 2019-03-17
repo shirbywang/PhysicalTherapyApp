@@ -1,98 +1,67 @@
-/**
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import {Text, View, Button, Image, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import {SocialIcon} from 'react-native-elements';
-import { createStackNavigator, createAppContainer } from "react-navigation"
-import MainScreen from './MainScreen'
-import SetupScreen from './screens/SetupScreen'
-import ChooseInjuryScreen from './screens/ChooseInjury'
-import InjurySurveyScreen from './screens/InjurySurvey'
-import FinishSurveyScreen from './screens/FinishSurveyScreen'
-import SettingScreen from './screens/SettingScreen'
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import MainScreen from './MainScreen';
+import LoginScreen from './screens/LoginScreen';
+import SetupScreen from './screens/SetupScreen';
+import ChooseInjuryScreen from './screens/ChooseInjury';
+import InjurySurveyScreen from './screens/InjurySurvey';
+import FinishSurveyScreen from './screens/FinishSurveyScreen';
+import SettingScreen from './screens/SettingScreen';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
 //will probably need to create a state to update and collect info
 
-class LoginScreen extends React.Component {
+class StartScreen extends React.Component {
+
+constructor (props) {
+  super(props)
+  this.state = {
+    url: ''
+    }
+  }
 
   static navigationOptions = {
     header: null,
   }
 
-  _returningUser = () =>{
-      this.props.navigation.navigate('Main');
+  _submitURL = () =>{
+      this.props.navigation.navigate('Login', {url: this.state.url});
   }
 
-  _newUser = () =>{
-      this.props.navigation.navigate('ChooseInjury');
-  }
-
-  _createAccount = () =>{
-      this.props.navigation.navigate('Setup');
-  }
+  _handleURL = (text) =>{
+      this.setState({ url: text })  
+    }
 
   render() {
     return (
       <View style={{flex: 1}}>
 
-
-        <View style={{flex: 1, justifyContent:'center', alignItems:'center'}}>
-          <Image source={require('./logo.png')}/>
-          <Text>tools that accelerate injury recovery</Text>
+        <View style={{alignItems:'center', paddingTop:10}}>
+          <Text style={{fontSize:35, fontWeight:'bold'}}> Welcome to VidPT! </Text>
         </View>
 
+        <Text style={{fontSize:25, fontWeight:'bold',textAlign: "center"}}>
+          Please enter IP Address for this Demo: </Text>
 
-        <KeyboardAvoidingView style={styles.container}>
-          <TextInput
-            placeholder="Email"
-            style={styles.input}
-          />
-          <TextInput
-            placeholder="Password"
-            style={styles.input}
-            secureTextEntry
-          />
-          <View style={{alignItems:'center'}}>
-            <TouchableOpacity onPress={this._returningUser} style={{backgroundColor:'#25ace3', borderRadius: 15,width: 180, height: 30}}>
-              <Text style={{textAlign:'center', color:'white', fontWeight:'bold', fontSize:20}}>Login</Text>
-            </TouchableOpacity>
-          </View>
+            <Text> Enter Demo URL: </Text>
+            <TextInput
+              style={styles.input}
+              secureTextEntry
+              onChangeText = {this._handleURL}
+        />
 
-        </KeyboardAvoidingView>
-
-        <View style={{alignItems:'center'}}>
-        <Text> Forgot your login? Get Help here</Text>
-
-        <Text style={{paddingTop:10}}>-----Or----</Text>
-        </View>
-
-        <View style={{flexDirection:'row', padding:20}}>
-          <TouchableOpacity onPress={this._returningUser} style={{flexDirection:'row', paddingRight:20}}>
-            <Icon name="logo-facebook" color='#3b5998' size={30}/>
-            <Text style={{fontSize:15, fontWeight:'bold', paddingLeft:10}}>Log in with Facebook</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={this._returningUser} style={{flexDirection:'row'}}>
-            <Icon name="logo-googleplus" color='#ea4335' size={30}/>
-            <Text style={{fontSize:15, fontWeight:'bold', paddingLeft:10}}>Log in with Google</Text>
-          </TouchableOpacity>
-        </View>
-
-
-
-        <Button onPress={this._createAccount} color='rgb(34, 172, 227)' title="Don't have an account? Sign up"/>
+        <Button onPress={this._submitURL} color='rgb(34, 172, 227)' title="Let's Go!"/>
       </View>
-
     );
   }
+
 }
 
 const AppNavigator = createStackNavigator(
   {
+    Start:StartScreen,
     Login:LoginScreen,
     Main: MainScreen,
     Setup: SetupScreen,
