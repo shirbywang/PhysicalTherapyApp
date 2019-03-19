@@ -35,3 +35,28 @@
 ul{
   list-style-type:none;
 }
+
+.dataOptions-bar{
+  display: flex;
+  flex-direction: row;
+}
+
+.button-toolbar{
+  padding: 25px;
+}
+
+.section-title{
+  text-transform: uppercase;
+}
+.splash-screen{
+  height: 100%;
+  width: 100%;
+}
+.logo{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
